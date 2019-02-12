@@ -1,0 +1,62 @@
+---
+title: "Git tutorial"
+author: John Doe
+date: March 22, 2005
+output: ioslides_presentation
+---
+
+# Git
+
+## git init 
+
+## git status
+
+## git add
+
+## git commit 
+
+## git commit --amend
+
+## git reset
+
+## git rm
+
+## git rm --cached
+
+## git mv
+
+## git rebase
+
+## git branch
+
+## git checkout
+
+## git merge
+
+## git rebase
+
+## git cherry-pick
+
+# Github
+
+## git clone
+
+## git fetch
+
+## git push
+
+## git pull
+
+# Github Flow
+
+# merge VS rebase 
+
+# Branchの正体 
+
+# gitのgit
+
+# 最初のコミット
+
+# ブロックチェーンとGit
+
+# Gitの名前の由来
