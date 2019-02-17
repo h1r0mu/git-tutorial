@@ -1,0 +1,554 @@
+
+# branch 
+
+
+## git log 
+
+基本の呪文
+Commit treeを表示する
+
+ `git log --oneline --graph --all`
+
+
+defaultの`git log`は見にくいので,いい感じで表示してくれる[wrapper](https://github.com/takaaki-kasai/git-foresta)もある.
+
+```{sh, eval=F}
+$ git-foresta --all | less -RSX
+99d7024c 2019-02-19 10:31  ○ ameono (master) Added file003
+2f98c925 2019-02-19 10:31  ● ameono Added file001 and file002.
+bf1b31ad 2019-02-19 10:31  │ ○ ameono (HEAD) Added gomi.
+fb7cc7b0 2019-02-19 10:31  │ ● ameono 再帰で検索して「もしかして：再帰」をクリックすると…。
+469a6426 2019-02-19 10:31  │ ● ameono Added file002.
+f8c8773e 2019-02-19 10:31  │ ● ameono Added file001.
+                           ├─┘
+2312317f 2019-02-19 10:30  ■ ameono Added file000.
+```
+
+
+---
+
+### 思い出す 
+
+Commit (directoryのスナップショット)からなるツリー.
+
+- CommitはdirectoryのスナップショットにIDとしてhash値を振ったもの.
+- Commitには親となるCommitが記録されている (= ツリー構造)
+- master, HEAD, branchなどはCommitを指しているTag (Pointer)の名前
+- 1度作ったcommitは基本的になくならない(探せなくはなるので注意) 
+
+<div align="center">
+<img src="https://git-scm.com/book/en/v2/images/advance-master.png" width="650px">
+</div>
+
+## git branch
+
+```{sh, eval=F}
+# 準備
+cd path/to/workspace
+git init
+echo "ROW000" > file000
+git add file000 
+git commit -m "Added file000."
+```
+
+`git branch [-d|-D] <branch-name> [<start-point>]`
+
+
+```{sh, eval=F}
+git branch feature/update_file000 master
+```
+
+feature/branch000という名前のタグを作る(指す先はmasterの指しているところ)
+
+## git branchをなかったことにする(branchを削除する)
+
+```{sh, eval=F}
+git branch -d feature/update_file000
+```
+
+強制的に削除する場合
+```{sh, eval=F}
+git branch -D feature/update_file000
+```
+
+## branchの削除をなかったことにする 
+
+```{sh, eval=F}
+$ git branch -d feature/update_file000
+Deleted branch feature/update_file000 (was e170b24). # <-- ここのhashを覚えておく 
+```
+
+```{sh, eval=F}
+git checkout e170b24 
+git checkout -b feature/update_file000
+```
+
+## git checkout
+
+`git checkout [-b] [<branch>|<commit>]`
+
+
+```{sh, eval=F}
+git checkout feature/update_file000
+```
+
+HEADの指す先をfeature/branch000へ変える
+
+branchの作成とcheckoutをいっぺんにやる
+
+```{sh, eval=F}
+git checkout -b feature/update_file000
+```
+
+--- 
+
+```{sh, eval=F}
+git branch testing 
+```
+
+<img src="https://git-scm.com/book/en/v2/images/head-to-master.png" width="400px">
+
+```{sh, eval=F}
+git checkout testing 
+```
+
+
+<img src="https://git-scm.com/book/en/v2/images/head-to-testing.png" width="400px">
+
+--- 
+
+CLIで見てみる
+
+```{sh, eval=F}
+$ git branch feature/update_file000
+$ git log --graph --all
+* commit e170b24890ca2685d9414b15f3862a28b16b3828 (HEAD -> master, feature/branch000)
+  Author: ameono <4m3on0@gmail.com>
+  Date:   Sat Feb 16 21:28:33 2019 +0900
+
+      Added file000.
+```
+
+```{sh, eval=F}
+$ git checkout feature/update_file000
+$ git log --graph --all
+* commit e170b24890ca2685d9414b15f3862a28b16b3828 (HEAD -> feature/branch000, master)
+  Author: ameono <4m3on0@gmail.com>
+  Date:   Sat Feb 16 21:28:33 2019 +0900
+
+      Added file000.
+```
+HEAD -> の指す先に注目.
+
+
+--- 
+
+```{sh, eval=F}
+echo "ROW001" >> file000
+git add file000 
+git commit -m "Updated file000 (added the second row)." 
+```
+
+masterと違うCommitを指していることを確認
+```{sh, eval=F}
+git log --oneline --graph --all
+```
+
+```{sh, eval=F}
+git checkout master
+cat file000 # update_file000ブランチの変更が反映されていないことを確認 
+cp file000 file001 
+git add file001
+git commit -m "Added file001."
+```
+
+分岐したことを確認
+```{sh, eval=F}
+git log --oneline --graph --all
+```
+
+## git merge 
+
+他のbranchの先端と今のbranchの先端を統合するcommitを作る
+
+`git merge [<branch>]`
+
+
+## git merge 
+
+GithubでPull requestをmergeするときはこんな感じのことをしている.
+
+<img src="./fig/merge.png" width="550px">
+
+--- 
+
+```{sh, eval=F}
+git checkout feature/update_file000
+git merge master 
+```
+
+```{sh, eval=F}
+$ git log --oneline --graph --all
+*   0b45d32 (HEAD -> feature/update_file000) Merge branch 'master' into feature/update_file000
+|\
+| * 179a3bc (master) Added file001.
+* | cf7cb13 Updated file000 (added the second row).
+|/
+* e170b24 Added file000.
+```
+
+Merge commitができている.
+
+--- 
+
+```{sh, eval=F}
+git checkout master 
+git merge --no-ff feature/update_file000
+```
+
+```{sh, eval=F}
+$ git log --oneline --graph --all
+*   500adbb (HEAD -> master) Merge branch 'feature/update_file000'
+|\
+| *   0b45d32 (feature/update_file000) Merge branch 'master' into feature/update_file000
+| |\
+| |/
+|/|
+* | 179a3bc Added file001.
+| * cf7cb13 Updated file000 (added the second row).
+|/
+* e170b24 Added file000.
+```
+
+Merge commitがまたできている.
+
+## git mergeをなかったことにする 
+
+```{sh, eval=F}
+$ git log --oneline --graph --all
+*   500adbb (HEAD -> master) Merge branch 'feature/update_file000'
+|\
+| *   0b45d32 (feature/update_file000) Merge branch 'master' into feature/update_file000
+| |\
+| |/
+|/|
+* | 179a3bc Added file001. # <-- Merge前のmaterの位置
+| * cf7cb13 Updated file000 (added the second row). # <-- Merge前のfeature/update_file000の位置
+|/
+* e170b24 Added file000.
+```
+
+master tagとupdate_file000 tagをそれぞれMerge前の位置に戻せば良い.
+
+## (Interruption) HEADについて 
+
+(復習) HEAD^ = 1つ前の親Commit
+
+親が2つ以上ある場合 `HEAD^N (N=親の番号)` のように指定できる.
+
+```{sh, eval=F}
+$ git show --name-only HEAD^
+commit 179a3bce92c28cb9a6ac1ef4d8ff4002c83d2f7d
+Author: ameono <4m3on0@gmail.com>
+Date:   Sun Feb 17 00:57:33 2019 +0900
+
+    Added file001.
+
+$ git show --name-only HEAD^2
+commit 0b45d32e5332152a5a44400d6394344199f4f968 (feature/update_file000)
+Merge: cf7cb13 179a3bc
+Author: ameono <4m3on0@gmail.com>
+Date:   Sun Feb 17 14:51:11 2019 +0900
+
+    Merge branch 'master' into feature/update_file000
+```
+
+--- 
+
+HEAD~2と似てるけど,全然意味が違う.
+
+```{sh, eval=F}
+$ git show --name-only HEAD~2
+commit e170b24890ca2685d9414b15f3862a28b16b3828
+Author: ameono <4m3on0@gmail.com>
+Date:   Sat Feb 16 21:28:33 2019 +0900
+
+    Added file000.
+```
+
+<img src="https://backlog.com/ja/git-tutorial/img/post/stepup/capture_stepup1_3_2.png" width="350px">
+
+- HEAD~N = HEADのN個前の親Commit
+
+- HEAD^N = HEADの1個前の親CommitのN番目
+
+ex) 1個前の親の2番めの親Commit = HEAD~1^2
+
+- HEAD@{N} = N個前にHEADが指していたCommit
+
+## git mergeをなかったことにする (続き) 
+
+masterのMergeをなかったことに
+
+```{sh, eval=F}
+git reset --hard HEAD^ 
+```
+
+```{sh, eval=F}
+$ git log --oneline --graph --all
+*   0b45d32 (feature/update_file000) Merge branch 'master' into feature/update_file000
+|\
+| * 179a3bc (HEAD -> master) Added file001.
+* | cf7cb13 Updated file000 (added the second row).
+|/
+* e170b24 Added file000.
+```
+
+--- 
+
+update_file000のMergeをなかったことに
+
+```{sh, eval=F}
+git checkout feature/update_file000
+git reset --hard HEAD^ 
+```
+
+```{sh, eval=F}
+$ git log --oneline --graph --all
+* 179a3bc (master) Added file001.
+| * cf7cb13 (HEAD -> feature/update_file000) Updated file000 (added the second row).
+|/
+* e170b24 Added file000.
+```
+
+簡単ですね?
+
+今までの話が理解できていれば,mergeをなかったことにしたのをなかったことにもできるはず.
+
+## git merge --no-ff について 
+
+```{sh, eval=F}
+(復習)
+git checkout feature/update_file000
+git merge master 
+git checkout master
+git merge --no-ff feature/update_file000 <-- --no-ffに注目
+```
+
+no-ff = No Fast Forward
+
+なしにしてやってみる
+
+```{sh, eval=F}
+git checkout feature/update_file000
+git merge master 
+git checkout master
+git merge feature/update_file000
+```
+
+```{sh, eval=F}
+$ git log --oneline --graph --all
+*   e6de5fd (HEAD -> master, feature/update_file000) Merge branch 'master' into feature/update_file000
+|\
+| * 179a3bc Added file001.
+* | cf7cb13 Updated file000 (added the second row).
+|/
+* e170b24 Added file000.
+```
+
+--- 
+
+<iframe src="https://www.slideshare.net/slideshow/embed_code/key/us6QLyLgaRMCyy?startSlide=40" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/kotas/git-15276118" title="こわくない Git" target="_blank">こわくない Git</a> </strong> from <strong><a href="https://www.slideshare.net/kotas" target="_blank">Kota Saito</a></strong> </div>
+
+
+
+## git rebase 
+
+`git rebase [<branch>]`
+
+`git rebase --continue | --skip | --abort | --quit | `
+
+他のbranchの先端に今のbranchの根本から先端までのcommitをまとめて移植する
+
+```{sh, eval=F}
+# 準備
+git branch -f feature/update_file000 HEAD^2
+git reset --hard HEAD^
+git checkout feature/update_file000
+```
+
+```{sh, eval=F}
+git rebase master
+```
+
+```{sh, eval=F}
+$ git log --oneline --graph --all
+* a336ea3 (HEAD -> feature/update_file000) Added file001.
+* cf7cb13 (master) Updated file000 (added the second row).
+* e170b24 Added file000.
+```
+
+--- 
+
+```{sh, eval=F}
+$ git rebase feature/update_file000
+First, rewinding head to replay your work on top of it...
+Fast-forwarded master to feature/update_file000.
+
+$ git log --oneline --graph --all
+* a336ea3 (HEAD -> master, feature/update_file000) Added file001.
+* cf7cb13 Updated file000 (added the second row).
+* e170b24 Added file000.
+```
+
+## git rebaseをなかったことにする 
+
+まずはmasterを戻す.
+
+```{sh, eval=F}
+$ git reset --hard HEAD^ 
+* a336ea3 (feature/update_file000) Added file001.
+* cf7cb13 (HEAD -> master) Updated file000 (added the second row).
+* e170b24 Added file000.
+```
+
+--- 
+
+次にupdate_file000を戻す
+
+
+```{sh, eval=F}
+$ git reflog
+a336ea3 (HEAD -> feature/update_file000) HEAD@{2}: checkout: moving from master to feature/update_file000
+cf7cb13 (master) HEAD@{3}: reset: moving to HEAD^
+a336ea3 (HEAD -> feature/update_file000) HEAD@{4}: rebase finished: returning to refs/heads/master
+a336ea3 (HEAD -> feature/update_file000) HEAD@{5}: rebase: checkout feature/update_file000
+cf7cb13 (master) HEAD@{6}: checkout: moving from feature/update_file000 to master
+a336ea3 (HEAD -> feature/update_file000) HEAD@{7}: rebase finished: returning to refs/heads/feature/update_file000
+a336ea3 (HEAD -> feature/update_file000) HEAD@{8}: rebase: Added file001.
+cf7cb13 (master) HEAD@{9}: rebase: checkout master
+179a3bc HEAD@{10}: checkout: moving from master to feature/update_file000 # <-- これ
+```
+
+```{sh, eval=F}
+$ git reset --hard HEAD@{10} 
+$ git log --oneline --graph --all
+* 179a3bc (HEAD -> feature/update_file000) Added file001.
+| * cf7cb13 (master) Updated file000 (added the second row).
+|/
+* e170b24 Added file000.
+```
+
+Mergeより戻すのが面倒(reflog使わないかん)ですね.
+
+このことから,rebaseとmergeならmergeを使うべきという人もいます.
+
+---
+
+公式曰く,
+
+> 公開リポジトリにプッシュしたコミットをリベースしてはいけない
+
+> この指針に従っている限り、すべてはうまく進みます。もしこれを守らなければ、あなたは嫌われ者となり、友人や家族からも軽蔑されることになるでしょう。(Pro Git)
+
+## git cherry-pick 
+
+`git cherry-pick <commit>...`
+
+他のbranchの特定のcommitを今のbranchの先端に移植する
+
+```{sh, eval=F}
+$ git log --oneline --graph --all
+* 179a3bc (HEAD -> feature/update_file000) Added file001.
+| * cf7cb13 (master) Updated file000 (added the second row).
+|/
+* e170b24 Added file000.
+```
+
+```{sh, eval=F}
+$ git cherry-pick cf7cb13
+```
+
+```{sh, eval=F}
+$ git log --oneline --graph --all
+* 8a1eae4 (HEAD -> feature/update_file000) Updated file000 (added the second row).
+* 179a3bc Added file001.
+| * cf7cb13 (master) Updated file000 (added the second row).
+|/
+* e170b24 Added file000.
+```
+
+ `master`のcommitが`feature/update_file000`へcopyされた
+
+ rebaseはcherry-pickを複数まとめてやっているだけとも言える.
+
+## Conflict 
+
+```{sh, eval=F}
+# 準備
+git reset --hard HEAD^
+echo "ROW002 <- update_file000" >> file000
+```
+
+```{sh, eval=F}
+$ git merge master
+Auto-merging file000
+CONFLICT (content): Merge conflict in file000
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+```{txt, eval=F}
+ROW000
+<<<<<<< HEAD
+ROW002 <- update_file000
+=======
+ROW001
+>>>>>>> master
+```
+
+## Conflictの解消法 
+
+1. ConfilitしたファイルをEditerで編集する
+1. `git checkout [--theirs|--ours] <paths>` を使う
+1. merge-toolを使う 
+
+
+## 2. checkoutを使う方法 
+
+```{sh, eval=F}
+git checkout --theirs file000
+```
+
+```{txt, eval=F}
+ROW000
+<<<<<<< HEAD # = --ours 
+ROW002 <- update_file000 
+=======
+ROW001
+>>>>>>> master # = --theris 
+```
+
+merge元のbranch(=--theirs)の変更かmerge先(=HEAD, --ours)の変更かのどちらかを採用する.
+
+**欠点**: どういう結果になるか予想がつきにくい. 
+
+
+## 3. merge-toolを使う 
+
+merge-toolには[色々ある](https://japan.blogs.atlassian.com/2016/02/tips-tools-to-solve-git-conflicts/).
+
+```{}
+git mergetool --tool=vimdiff
+```
+
+<img src="./fig/merge_tool_vimdiff.png" width="650px">
+
+DiffがあるChunk(=色が変わっている部分)にカーソルを合わせ,
+1do, 2do, 3doと入力することで,それぞれ上段の左から1番目,2番目,3番目が今後の姿に取り込まれる.
+
+--- 
+
+PyCharmのようにConflictを解消するツールが付いているIDEもある.
+
+<img src="https://www.jetbrains.com/help/img/idea/2018.3/resolveConflict.png" width="850px">
+

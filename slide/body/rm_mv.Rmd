@@ -1,0 +1,90 @@
+
+# rm, mv 
+
+## git rm --cached
+
+ファイルをStaged areaとGit directoryから削除する
+
+(=untracked(gitの追跡対象外)にする)
+
+
+`git rm [--cached] [path ...]`
+
+```{sh, eval=F}
+cd path/to/workspace
+mkdir repo002
+echo "ROW000" > file000
+git add file000 
+git commit -m "Added file000."
+```
+
+```{sh, eval=F}
+# 復習
+git add file000 # tracked(gitの追跡対象指定)にする
+```
+
+```{sh, eval=F}
+git rm --cached file000
+```
+
+
+## .gitignore
+
+一生untrackedにしておきたいfileやdirectoryは`,.gitignore`というfileを作ってそこに書く.
+
+.gitignoreしたdirectory内の一部のfileのみをtrackedにしたい場合は,`.gitkeep`に書いてignoreされないようにする.
+
+.gitignore(.gitkeep)については,自分でググってね. (i.e., あまり興味ない)
+
+
+<div align="center">
+<img src="http://slazebni.cs.illinois.edu/fall18/orly.jpg" width="650px">
+</div>
+
+## git rm
+
+ファイルをWorking Directory, Staged area, Git directoryのすべてから削除する.
+
+
+```{sh, eval=F}
+# 準備  
+git add file000
+```
+
+```{sh, eval=F}
+rm file000
+git add file000 # git rm --cached file000でも良い
+git commit -m "Removed file000."
+```
+
+上の2つをまとめてやる
+
+```{sh, eval=F}
+# 準備  
+git reset --hard HEAD^ # HEAD^ = 1つ前の親Commit
+```
+
+```{sh, eval=F}
+git rm file000
+git commit -m "Removed file000."
+```
+
+## git mv
+
+ファイルをWorking Directory, Staged area, Git directoryのすべてにおいてmoveまたはrenameする. 
+
+*Note: mvとrenameは本質的に同じ*
+
+`git mv  <source> <destination>`
+
+```{sh, eval=F}
+# 準備  
+git reset --hard HEAD^
+```
+
+
+```{sh, eval=F}
+git mv file000 file001
+git commit -m "Renamed file000 to file001."
+```
+

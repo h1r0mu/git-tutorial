@@ -2,56 +2,44 @@
 title: "Git tutorial"
 author: John Doe
 date: March 22, 2005
-output: ioslides_presentation
+output: 
+  ioslides_presentation:
+    slide_level: 2
+    widescreen: true
+    smaller: true
+    toc: true
+    number_sections: true
 ---
+
+<style type="text/css">
+    pre { 
+    font-size: 14px;
+    }
+</style>
 
 # Git
 
-## git init 
+```{r child="./body/basic.Rmd"}
+```
 
-## git status
+```{r child="./body/add_commit_reset.Rmd"}
+```
 
-## git add
+```{r child="./body/rm_mv.Rmd"}
+```
 
-## git commit 
+```{r child="./body/commit-amend_rebase.Rmd"}
+```
 
-## git commit --amend
-
-## git reset
-
-## git rm
-
-## git rm --cached
-
-## git mv
-
-## git rebase
-
-## git branch
-
-## git checkout
-
-## git merge
-
-## git rebase
-
-## git cherry-pick
+```{r child="./body/branch.Rmd"}
+```
 
 # Github
 
-## git clone
-
-## git fetch
-
-## git push
-
-## git pull
-
-# Github Flow
+```{r child="./body/github.Rmd"}
+```
 
 # merge VS rebase 
-
-# Branchの正体 
 
 # gitのgit
 

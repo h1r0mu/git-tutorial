@@ -1,0 +1,126 @@
+
+## Githubってなんだよ
+
+GitHub は世界最大の Remote Git リポジトリホスティングサービスだよ.
+
+つまり?
+
+**localのrepository = localのPCにおいてあるdirecotry**
+
+とすると,
+
+**Github上のrepository = Google driveにおいてあるdirecotry**
+
+のような関係.
+
+---
+
+有名どころ 
+
+- Github
+
+- Gitlab
+
+- Bitbucket
+
+Githubがやたら有名だが他にもある (Google driveとDropbox的な関係).
+
+できることは大差ないので,お財布事情とUIの好みの問題
+
+(あとは狸と猫のどっちが好きかとか...バケツ...).
+
+
+<div align="center">
+<img src="http://www-creators.com/wp-content/uploads/2017/02/SERVICES-680x220.png" width="750px">
+</div>
+
+---
+
+### Github
+
+- とにかく有名 (連携サービスが多いイメージ).
+
+- お金たくさん持ってく.
+
+- Github Educationとか言う学生プランに加入するとGithub含め色々な有名サービスが無料で使える.
+
+- 本田圭佑がいる
+
+- 他の2つと違い自前のCIとかはない(他のツールと組み合わせる前提OSSの思想的には○?)
+
+---
+
+### Gitlab
+
+- どちらかというと,自組織のサーバにインストールして自分たちしかアクセスできないRemote repositoryとして使う (要するに自前のfile server的なやつ)オンプレミス版のほうが有名.
+
+
+- Slackを水で薄めたようなchatアプリやCIがついてくるので,これひとつで開発に必要なすべての作業を完結させることができる.
+
+- 大人の事情でPublic臭の強いGithubとかSlackとかを使えない人たちが使ってるっぽい(NASAとか).
+
+
+---
+
+### Bitbucket 
+
+- 一昔前までPrivate repository(外部公開されない) 作り放題な唯一のサービスだったので,個人の利用者が多くいた(今は,Githubも作り放題).
+
+- Source treeの開発元でもあるAtlassianの製品.
+
+- お金ないらしい(最近値上げした).
+
+---
+
+### 比較
+
+https://stackshare.io/stackups/bitbucket-vs-github-vs-gitlab
+
+2019 2月現在,各サービスの無料プランの状況
+
+                       Github    Bitbucket   Github (学生)   Bitbucket (学生)   GitLab
+  -------------------- --------- ----------- --------------- ------------------ -----------
+  private repository   無制限    無制限      無制限          無制限             無制限
+  public repository    無制限    無制限      無制限          無制限             無制限
+  collaborator         3名まで   5名まで     無制限          無制限             無制限
+  CI build time        \-        50分/月     \-              500分/月           2000分/月
+  LFS                  1GB       1GB         1GB             5GB                無制限?
+  LFS Bandwidth        1GB/月    無制限      1GB/月          無制限             無制限?
+
+## git clone
+
+remote repositoryのcopyをlocalに作る.(= ダウンロード)
+
+`git clone <repository>`
+
+## git fetch
+
+remote repository(のタグとcommit)を同期する
+
+## git pull
+
+`git pull [--rebase] <remote> <branch>`
+
+`git fetch` と `git merge origin/master` をまとめてやる(`--rebase`つけると`git rebase origin/master`になる)
+
+## git push
+
+`git push <remote> <branch>`
+
+remoteの`<branch>`タグをlocalの`<branch>`タグの位置に同期させる(Conflictする場合はpushできない).
+
+FYI: remote側で起こる動作は,`<origin>`/`<branch>`に`checkout`して
+
+`git merge --ff-only <branch>`
+
+したときに起こる動作と同じと考えることができる.
+
+`--ff-only`勉強しといてよかったね!!!?
+
+
+## Github Flow
+
+<div align="center">
+<img src="https://camo.qiitausercontent.com/bbb6ba70f058f0d10c8f7a769ae8fd089dc7684e/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f35333330392f30363134303132312d613062362d343237662d633134392d3638353863313439373338652e706e67" width="450px">
+</div>
+
