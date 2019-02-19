@@ -4,7 +4,11 @@ author: John Doe
 date: March 22, 2005
 output: 
   ioslides_presentation:
+    slide_level: 2
     widescreen: true
+    smaller: true
+    toc: true
+    number_sections: true
 ---
 
 <style type="text/css">
@@ -30,17 +34,8 @@ output:
 ```{r child="./body/branch.Rmd"}
 ```
 
-# Github
-
-## git clone
-
-## git fetch
-
-## git push
-
-## git pull
-
-# Github Flow
+```{r child="./body/github.Rmd"}
+```
 
 # merge VS rebase 
 

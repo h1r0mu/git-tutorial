@@ -1,0 +1,124 @@
+
+# Github
+
+# Githubってなんだよ
+
+GitHub は世界最大の Git リポジトリホスティングサービス.
+
+つまり?
+
+local repository = localのPCにおいてあるdirecotry
+remote repository (e.g., Github) = cloud server(Google drive)においてあるdirecotry
+
+---
+
+Githubが有名だが他にもある (Google driveとDropbox的な関係).
+
+- Gitlab
+
+- Bitbucket
+
+できることは大差ないので,お財布事情とUIの好みの問題.
+
+---
+
+### Gitlab
+
+正確にはGitサーバでもある.
+
+自組織のサーバにインストールして,自分たちしかアクセスできないRemote repositoryとして使う (要するに自前のfile server的なやつ).
+
+Slackを水で薄めたようなchatアプリがついてくるので,これひとつで開発に必要なすべての作業を完結させることができる.
+
+大人の事情でPublic cloudであるGithubを使えない人たちが使ってるっぽい(NASAとか).
+
+### Bitbucket 
+
+一昔前までPrivate repository(外部公開されない) 作り放題な唯一のサービスだったので,個人の利用者が多くいた(今は,Githubも作り放題).
+
+Source treeの開発元でもあるAtlassianの製品.
+
+なぜrepositoryホスティングサービスでのみGithubに遅れをとっているのか不思議.
+
+
+<div align="center">
+<img src="https://www.git-tower.com/learn/content/01-git/01-ebook/en/01-command-line/04-remote-repositories/01-introduction/basic-remote-workflow.png" width="450px">
+</div>
+
+<table>
+<thead>
+<tr>
+<th>コラボレーター数</th>
+<th style="text-align: right">GitHub.com</th>
+<th style="text-align: right">BitBucket.org(現在)</th>
+<th style="text-align: right">BitBucket.org Free(将来)</th>
+<th style="text-align: right">BitBucket.org Standard(将来)</th>
+<th style="text-align: right">GitLab.com</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3名</td>
+<td style="text-align: right">$0</td>
+<td style="text-align: right">$0</td>
+<td style="text-align: right">$0</td>
+<td style="text-align: right">$10</td>
+<td style="text-align: right">$0</td>
+</tr>
+<tr>
+<td>5名</td>
+<td style="text-align: right">$25</td>
+<td style="text-align: right">$0</td>
+<td style="text-align: right">$0</td>
+<td style="text-align: right">$10</td>
+<td style="text-align: right">$0</td>
+</tr>
+<tr>
+<td>10名</td>
+<td style="text-align: right">$70</td>
+<td style="text-align: right">$10</td>
+<td style="text-align: right">N/A</td>
+<td style="text-align: right">$20</td>
+<td style="text-align: right">$0</td>
+</tr>
+<tr>
+<td>11名</td>
+<td style="text-align: right">$79</td>
+<td style="text-align: right">$25</td>
+<td style="text-align: right">N/A</td>
+<td style="text-align: right">$22</td>
+<td style="text-align: right">$0</td>
+</tr>
+<tr>
+<td>100名</td>
+<td style="text-align: right">$880</td>
+<td style="text-align: right">$100</td>
+<td style="text-align: right">N/A</td>
+<td style="text-align: right">$200</td>
+<td style="text-align: right">$0</td>
+</tr>
+<tr>
+<td>無制限</td>
+<td style="text-align: right">N/A</td>
+<td style="text-align: right">$200</td>
+<td style="text-align: right">N/A</td>
+<td style="text-align: right">N/A</td>
+<td style="text-align: right">$0</td>
+</tr>
+</tbody>
+</table>
+
+## git clone
+
+remote repositoryのcopyをlocalに作る.(= ダウンロード)
+
+`git clone <repository>`
+
+## git fetch
+
+## git push
+
+## git pull
+
+# Github Flow
+

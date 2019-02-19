@@ -20,7 +20,10 @@ git status
 
 これから何かする度になるべく`git status`しましょう.
 
-## 思い出す
+
+---
+
+### 思い出す
 
 <div align="center">
 <img src="https://git-scm.com/book/en/v2/images/lifecycle.png" width="650px">
@@ -43,15 +46,15 @@ git init
 rm -R .git
 ```
 
-## git add
+## git add 
 
 ファイルをStaged areaに追加する.
 
 - 新規ファイルの場合
-  - tracked(gitの追跡対象指定)にする
-  - staged(commitに含める対象指定)にする.
+    - tracked(gitの追跡対象指定)にする
+    - staged(commitに含める対象指定)にする.
 - 既存ファイルの場合
-  - staged(commitに含める対象指定)にする.
+    - staged(commitに含める対象指定)にする.
 
 `git add [path ...]`
 
@@ -60,18 +63,19 @@ echo "ROW000" > file000
 git add file000
 ```
 
-## 
+
+--- 
 
 <div align="center">
 <img src="https://git-scm.com/book/en/v2/images/reset-ex2.png" width="650px">
 </div>
-## git addをなかったことにする
+## git addをなかったことにする 
 
 - 新規ファイルの場合
-  - untracked(gitの追跡対象外)にする
-  - unstaged(commitに含める対象外)にする.
+    - untracked(gitの追跡対象外)にする
+    - unstaged(commitに含める対象外)にする.
 - 既存ファイルの場合
-  - unstaged(commitに含める対象外)にする.
+    - unstaged(commitに含める対象外)にする.
 
 `git reset [--soft | --hard] [<commit>] [path ...]`
 
@@ -100,7 +104,8 @@ git add file000
 git commit -m "Added file000."
 ```
 
-##
+
+---
 
 <div align="center">
 <img src="https://git-scm.com/book/en/v2/images/reset-ex3.png" width="650px">
@@ -147,11 +152,11 @@ e170b24 (HEAD -> master) HEAD@{0}: reset: moving to HEAD^
 git reset HEAD@{1} # HEAD@{1} = 1つ前にHEADの指していたcommit
 ```
 
-## git reset {.smaller}
+## git reset 
 
 <iframe src="https://www.slideshare.net/slideshow/embed_code/key/3BCgttHAboVzqg?startSlide=30" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/TomohikoHimura/git-22237343" title="やりなおせる Git 入門" target="_blank">やりなおせる Git 入門</a> </strong> from <strong><a href="https://www.slideshare.net/TomohikoHimura" target="_blank">Tomohiko Himura</a></strong> </div>
 
-## {.smaller}
+---
 
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -230,3 +235,6 @@ git reset HEAD@{1} # HEAD@{1} = 1つ前にHEADの指していたcommit
 </tbody>
 </table>
 
+つまり?
+
+`git reset --hard` するときは気をつけよう.

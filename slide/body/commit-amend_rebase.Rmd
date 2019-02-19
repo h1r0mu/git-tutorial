@@ -15,14 +15,14 @@ git add file000
 git commit -m "Added file000."
 ```
 
-ファイルをaddし忘れた
+ファイルをaddし忘れたときとか,コメントを修正したい時とかに便利
 
 ```{sh, eval=F}
 git add file001 
 git commit --amend -m "Added file000 and file001."
 ```
 
-## git rebase {.smaller}
+## git rebase 
 
 直前だけじゃなく,もっと前まで遡って自分の都合の良いように歴史を改変したい
 
@@ -44,7 +44,7 @@ git add gomi
 git commit -m "Added gomi."
 ```
 
-## 
+--- 
 
 `git rebase -i <commit>`
 
@@ -64,7 +64,7 @@ git rebase -i HEAD~4 # HEAD~4 = 4つ前の親Commit
 
 この場合変更対象は`HEAD` - `HEAD~3`
 
-## {.smaller}
+--- 
 
 ```{sh, eval=F}
 pick 17b9da7 Added file001.
@@ -91,9 +91,9 @@ pick 00805cf Added gomi.
 #
 # Note that empty commits are commented out
 ```
-1番目と2番目はまとめたいくて,3番目のメッセージを書き直したくて,4番目は消したい.
+1番目と2番目はまとめたくて,3番目のメッセージを書き直したくて,4番目は消したい.
 
-## {.smaller}
+--- 
 
 ```{sh, eval=F}
 pick 17b9da7 Added file001.
@@ -121,7 +121,7 @@ d 00805cf Added gomi.
 # Note that empty commits are commented out
 ```
 
-## {.smaller}
+--- 
 
 ```{sh, eval=F}
 # This is a combination of 2 commits.
@@ -152,7 +152,7 @@ Added file002.
 #       new file:   file002
 ```
 
-## {.smaller}
+--- 
 
 ```{sh, eval=F}
 # This is a combination of 2 commits.
@@ -183,7 +183,7 @@ Added file001 and file002.
 #       new file:   file002
 ```
 
-## {.smaller}
+--- 
 
 ```{sh, eval=F}
 [detached HEAD 0136ee2] Added file001 and file002.
@@ -215,7 +215,7 @@ $ git log --oneline --graph --all
 * 2312317 Added file000.
 ```
 
-## {.smaller}
+--- 
 
 ```{sh, eval=F}
 git commit --amend
@@ -242,7 +242,7 @@ git commit --amend
 #
 ```
 
-## {.smaller}
+--- 
 
 ```{sh, eval=F}
 Added file003.
@@ -265,19 +265,21 @@ Added file003.
 #
 ```
 
+終わったらcontinue
+
 ```{sh, eval=F}
 git rebase --continue
 ```
 
 
-## git rebaseをなかったことにする {.smaller}
+## git rebaseをなかったことにする 
 
 rebaseの途中でやっぱりやめたくなった
 ```{sh, eval=F}
 git rebase --abort
 ```
 
-## git rebaseをなかったことにする {.smaller}
+## git rebaseをなかったことにする 
 
 rebaseしたあと,やっぱりなかったことにしたくなった 
 
@@ -294,7 +296,7 @@ rebaseは既存のcommitをコピーを作っているだけなので,元のcomm
 * 2312317 Added file000.
 ```
 
-## git rebaseをなかったことにする {.smaller}
+## git rebaseをなかったことにする 
 
 見えないcommitをたどるにはreflog.
 
@@ -313,7 +315,7 @@ ecc3571 HEAD@{2}: rebase -i (edit): 「もしかして:再帰」をクリック�
 git reset --hard HEAD@{5} # HEAD@{5} = 5つ前にHEADの指していたcommit
 ```
 
-## git rebaseをなかったことにしたのをなかったことにする {.smaller}
+## git rebaseをなかったことにしたのをなかったことにする 
 
 ```{sh, eval=F}
 $ git reflog
@@ -330,4 +332,9 @@ ecc3571 HEAD@{3}: rebase -i (edit): 「もしかして:再帰」をクリック�
 ```{sh, eval=F}
 git reset --hard HEAD@{1} 
 ```
+
+## git rebaseまとめ
+
+- 指定したcommitを分岐点として改変された歴史作る
+- 途中でわけわかんなくなったら--abort 
 

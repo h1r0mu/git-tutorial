@@ -23,7 +23,7 @@ Gitには3つの視点がある
 
 これらを理解すればGit master.
 
-## Commit tree {.smaller}
+## Commit tree 
 
 Commit (directoryのスナップショット)からなるツリー.
 
@@ -36,12 +36,15 @@ Commit (directoryのスナップショット)からなるツリー.
 <img src="https://git-scm.com/book/en/v2/images/advance-master.png" width="450px">
 </div>
 
-## どういうときに思い出すべき?
+
+--- 
+
+### どういうときに思い出すべき?
 
 - branchの操作 (branch, checkout, reset, rebase, push, pull)
 - commitの操作 (reset, cherry-pick, revert)
 
-## Three areas {.smaller}
+## Three areas 
 
 1つのCommitの裏には3つのレイヤがある
 
@@ -53,11 +56,14 @@ Commit (directoryのスナップショット)からなるツリー.
 <img src="https://git-scm.com/book/en/v2/images/areas.png" width="450px">
 </div>
 
-## どういうときに思い出すべき?
+
+--- 
+
+### どういうときに思い出すべき?
 
 - 特定のCommitの変更 (reset, checkout)
 
-## File status {.smaller}
+## File status 
 
 fileには4つの状態がある
 
@@ -70,11 +76,14 @@ fileには4つの状態がある
 <img src="https://git-scm.com/book/en/v2/images/lifecycle.png" width="450px">
 </div>
 
-## どういうときに思い出すべき?
+
+--- 
+
+### どういうときに思い出すべき?
 
 - 特定のfileの操作 (add, rm, mv, reset)
 
-## おめでとう {.smaller}
+## おめでとう 
 
 あなたは,gitマスターになりました.
 

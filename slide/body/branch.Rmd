@@ -2,7 +2,7 @@
 # branch 
 
 
-## git log {.smaller}
+## git log 
 
 基本の呪文
 Commit treeを表示する
@@ -24,7 +24,10 @@ f8c8773e 2019-02-19 10:31  │ ● ameono Added file001.
 2312317f 2019-02-19 10:30  ■ ameono Added file000.
 ```
 
-## 思い出す {.smaller}
+
+---
+
+### 思い出す 
 
 Commit (directoryのスナップショット)からなるツリー.
 
@@ -68,7 +71,7 @@ git branch -d feature/update_file000
 git branch -D feature/update_file000
 ```
 
-## branchの削除をなかったことにする {.smaller}
+## branchの削除をなかったことにする 
 
 ```{sh, eval=F}
 $ git branch -d feature/update_file000
@@ -97,7 +100,7 @@ branchの作成とcheckoutをいっぺんにやる
 git checkout -b feature/update_file000
 ```
 
-## {.smaller}
+--- 
 
 ```{sh, eval=F}
 git branch testing 
@@ -112,7 +115,7 @@ git checkout testing
 
 <img src="https://git-scm.com/book/en/v2/images/head-to-testing.png" width="400px">
 
-## {.smaller}
+--- 
 
 CLIで見てみる
 
@@ -138,7 +141,7 @@ $ git log --graph --all
 HEAD -> の指す先に注目.
 
 
-## {.smaller}
+--- 
 
 ```{sh, eval=F}
 echo "ROW001" >> file000
@@ -164,19 +167,20 @@ git commit -m "Added file001."
 git log --oneline --graph --all
 ```
 
-## git merge {.smaller}
-
-`git merge [<branch>]`
+## git merge 
 
 他のbranchの先端と今のbranchの先端を統合するcommitを作る
 
-## git merge {.smaller}
+`git merge [<branch>]`
+
+
+## git merge 
 
 GithubでPull requestをmergeするときはこんな感じのことをしている.
 
 <img src="./fig/merge.png" width="550px">
 
-## {.smaller}
+--- 
 
 ```{sh, eval=F}
 git checkout feature/update_file000
@@ -193,7 +197,9 @@ $ git log --oneline --graph --all
 * e170b24 Added file000.
 ```
 
-## {.smaller}
+Merge commitができている.
+
+--- 
 
 ```{sh, eval=F}
 git checkout master 
@@ -214,7 +220,9 @@ $ git log --oneline --graph --all
 * e170b24 Added file000.
 ```
 
-## git mergeをなかったことにする {.smaller}
+Merge commitがまたできている.
+
+## git mergeをなかったことにする 
 
 ```{sh, eval=F}
 $ git log --oneline --graph --all
@@ -232,7 +240,7 @@ $ git log --oneline --graph --all
 
 master tagとupdate_file000 tagをそれぞれMerge前の位置に戻せば良い.
 
-## (Interruption) HEADについて {.smaller}
+## (Interruption) HEADについて 
 
 (復習) HEAD^ = 1つ前の親Commit
 
@@ -255,7 +263,7 @@ Date:   Sun Feb 17 14:51:11 2019 +0900
     Merge branch 'master' into feature/update_file000
 ```
 
-## {.smaller}
+--- 
 
 HEAD~2と似てるけど,全然意味が違う.
 
@@ -278,7 +286,7 @@ ex) 1個前の親の2番めの親Commit = HEAD~1^2
 
 - HEAD@{N} = N個前にHEADが指していたCommit
 
-## git mergeをなかったことにする (続き) {.smaller}
+## git mergeをなかったことにする (続き) 
 
 masterのMergeをなかったことに
 
@@ -296,7 +304,7 @@ $ git log --oneline --graph --all
 * e170b24 Added file000.
 ```
 
-## {.smaller}
+--- 
 
 update_file000のMergeをなかったことに
 
@@ -313,9 +321,11 @@ $ git log --oneline --graph --all
 * e170b24 Added file000.
 ```
 
+簡単ですね?
+
 今までの話が理解できていれば,mergeをなかったことにしたのをなかったことにもできるはず.
 
-## git merge --no-ff について {.smaller}
+## git merge --no-ff について 
 
 ```{sh, eval=F}
 (復習)
@@ -346,13 +356,13 @@ $ git log --oneline --graph --all
 * e170b24 Added file000.
 ```
 
-## {.smaller}
+--- 
 
 <iframe src="https://www.slideshare.net/slideshow/embed_code/key/us6QLyLgaRMCyy?startSlide=40" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/kotas/git-15276118" title="こわくない Git" target="_blank">こわくない Git</a> </strong> from <strong><a href="https://www.slideshare.net/kotas" target="_blank">Kota Saito</a></strong> </div>
 
 
 
-## git rebase {.smaller}
+## git rebase 
 
 `git rebase [<branch>]`
 
@@ -378,7 +388,7 @@ $ git log --oneline --graph --all
 * e170b24 Added file000.
 ```
 
-## {.smaller}
+--- 
 
 ```{sh, eval=F}
 $ git rebase feature/update_file000
@@ -391,7 +401,7 @@ $ git log --oneline --graph --all
 * e170b24 Added file000.
 ```
 
-## git rebaseをなかったことにする {.smaller}
+## git rebaseをなかったことにする 
 
 まずはmasterを戻す.
 
@@ -402,13 +412,12 @@ $ git reset --hard HEAD^
 * e170b24 Added file000.
 ```
 
-## {.smaller}
+--- 
 
 次にupdate_file000を戻す
 
 
 ```{sh, eval=F}
-
 $ git reflog
 a336ea3 (HEAD -> feature/update_file000) HEAD@{2}: checkout: moving from master to feature/update_file000
 cf7cb13 (master) HEAD@{3}: reset: moving to HEAD^
@@ -419,9 +428,7 @@ a336ea3 (HEAD -> feature/update_file000) HEAD@{7}: rebase finished: returning to
 a336ea3 (HEAD -> feature/update_file000) HEAD@{8}: rebase: Added file001.
 cf7cb13 (master) HEAD@{9}: rebase: checkout master
 179a3bc HEAD@{10}: checkout: moving from master to feature/update_file000 # <-- これ
-
 ```
-
 
 ```{sh, eval=F}
 $ git reset --hard HEAD@{10} 
@@ -432,8 +439,19 @@ $ git log --oneline --graph --all
 * e170b24 Added file000.
 ```
 
+Mergeより戻すのが面倒(reflog使わないかん)ですね.
 
-## git cherry-pick {.smaller}
+このことから,rebaseとmergeならmergeを使うべきという人もいます.
+
+---
+
+公式曰く,
+
+> 公開リポジトリにプッシュしたコミットをリベースしてはいけない
+
+> この指針に従っている限り、すべてはうまく進みます。もしこれを守らなければ、あなたは嫌われ者となり、友人や家族からも軽蔑されることになるでしょう。(Pro Git)
+
+## git cherry-pick 
 
 `git cherry-pick <commit>...`
 
@@ -464,7 +482,7 @@ $ git log --oneline --graph --all
 
  rebaseはcherry-pickを複数まとめてやっているだけとも言える.
 
-## Conflict {.smaller}
+## Conflict 
 
 ```{sh, eval=F}
 # 準備
@@ -488,14 +506,14 @@ ROW001
 >>>>>>> master
 ```
 
-## Conflictの解消法 {.smaller}
+## Conflictの解消法 
 
 1. ConfilitしたファイルをEditerで編集する
 1. `git checkout [--theirs|--ours] <paths>` を使う
 1. merge-toolを使う 
 
 
-## 2. checkoutを使う方法 {.smaller}
+## 2. checkoutを使う方法 
 
 ```{sh, eval=F}
 git checkout --theirs file000
@@ -515,7 +533,7 @@ merge元のbranch(=--theirs)の変更かmerge先(=HEAD, --ours)の変更かの�
 **欠点**: どういう結果になるか予想がつきにくい. 
 
 
-## 3. merge-toolを使う {.smaller}
+## 3. merge-toolを使う 
 
 merge-toolには[色々ある](https://japan.blogs.atlassian.com/2016/02/tips-tools-to-solve-git-conflicts/).
 
@@ -528,7 +546,7 @@ git mergetool --tool=vimdiff
 DiffがあるChunk(=色が変わっている部分)にカーソルを合わせ,
 1do, 2do, 3doと入力することで,それぞれ上段の左から1番目,2番目,3番目が今後の姿に取り込まれる.
 
-## 
+--- 
 
 PyCharmのようにConflictを解消するツールが付いているIDEもある.
 

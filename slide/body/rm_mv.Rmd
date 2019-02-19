@@ -3,7 +3,9 @@
 
 ## git rm --cached
 
-ファイルをuntracked(gitの追跡対象外)にする.
+ファイルをStaged areaとGit directoryから削除する
+
+(=untracked(gitの追跡対象外)にする)
 
 
 `git rm [--cached] [path ...]`
@@ -26,11 +28,11 @@ git rm --cached file000
 ```
 
 
-## 
+## .gitignore
 
-一生untrackedにしておきたいfileやdirectoryは`.gitignore`というfileを作ってそこに書く.
+一生untrackedにしておきたいfileやdirectoryは`,.gitignore`というfileを作ってそこに書く.
 
-.gitignoreでuntrackedにしたdirectoryにtrackedにしたいfileが1,2個含まれている場合は`.gitkeep`に書く.
+.gitignoreしたdirectory内の一部のfileのみをtrackedにしたい場合は,`.gitkeep`に書いてignoreされないようにする.
 
 .gitignore(.gitkeep)については,自分でググってね. (i.e., あまり興味ない)
 
@@ -41,7 +43,7 @@ git rm --cached file000
 
 ## git rm
 
-ファイルをWorking Directoryから削除する.
+ファイルをWorking Directory, Staged area, Git directoryのすべてから削除する.
 
 
 ```{sh, eval=F}
@@ -69,7 +71,7 @@ git commit -m "Removed file000."
 
 ## git mv
 
-ファイルをmoveまたはrenameする.
+ファイルをWorking Directory, Staged area, Git directoryのすべてにおいてmoveまたはrenameする. 
 
 *Note: mvとrenameは本質的に同じ*
 
