@@ -1,0 +1,80 @@
+## 今日の趣旨
+
+- gitを覚える (頭で)
+- 呪文を覚える (身体で)
+- 呪文を打ち消す呪文を覚える (身体で)
+
+
+
+
+<div style="font-size:x-small;">
+
+>	重犯罪人に自分の罪を思い知らせるなら、土を掘り移動させ、それからまた埋めて元に戻す、という作業を延々と繰り返させればよい。それは究極の拷問であり、最後には精神に異常をきたすであろう。(ドフトエフスキー?)
+
+</div>
+
+## 頭で覚えること 
+
+Gitには3つの視点がある
+
+- Commit tree 
+- Three areas 
+- File status 
+
+これらを理解すればGit master.
+
+## Commit tree {.smaller}
+
+Commit (directoryのスナップショット)からなるツリー.
+
+- CommitはdirectoryのスナップショットにIDとしてhash値を振ったもの.
+- Commitには親となるCommitが記録されている (= ツリー構造)
+- master, HEAD, branchなどはCommitを指しているTag (Pointer)の名前
+- 1度作ったcommitは基本的になくならない(探せなくはなるので注意) 
+
+<div align="center">
+<img src="https://git-scm.com/book/en/v2/images/advance-master.png" width="450px">
+</div>
+
+## どういうときに思い出すべき?
+
+- branchの操作 (branch, checkout, reset, rebase, push, pull)
+- commitの操作 (reset, cherry-pick, revert)
+
+## Three areas {.smaller}
+
+1つのCommitの裏には3つのレイヤがある
+
+1. Working directory: 実際のdirectory
+1. Staging Area (Index): Working direcoryのファイルのうちCommitに含まれる予定のファイルのcopy
+1. git directory: Staging areaのfileのcopy 
+
+<div align="center">
+<img src="https://git-scm.com/book/en/v2/images/areas.png" width="450px">
+</div>
+
+## どういうときに思い出すべき?
+
+- 特定のCommitの変更 (reset, checkout)
+
+## File status {.smaller}
+
+fileには4つの状態がある
+
+1. Untracked: gitの追跡対象外のfile
+1. Unmodified: gitの追跡対象で変更されていないfile(=Commitのfileと同じ)
+1. Modified: gitの追跡対象で変更されたfile(=Commitのfileと違う)
+1. Staged: gitの追跡対象で変更されたfileでStaging areaにcopy済みのもの 
+
+<div align="center">
+<img src="https://git-scm.com/book/en/v2/images/lifecycle.png" width="450px">
+</div>
+
+## どういうときに思い出すべき?
+
+- 特定のfileの操作 (add, rm, mv, reset)
+
+## おめでとう {.smaller}
+
+あなたは,gitマスターになりました.
+
