@@ -1,112 +1,91 @@
 
-# Github
+## Githubってなんだよ
 
-# Githubってなんだよ
-
-GitHub は世界最大の Git リポジトリホスティングサービス.
+GitHub は世界最大の Remote Git リポジトリホスティングサービスだよ.
 
 つまり?
 
-local repository = localのPCにおいてあるdirecotry
-remote repository (e.g., Github) = cloud server(Google drive)においてあるdirecotry
+**localのrepository = localのPCにおいてあるdirecotry**
+
+とすると,
+
+**Github上のrepository = Google driveにおいてあるdirecotry**
+
+のような関係.
 
 ---
 
-Githubが有名だが他にもある (Google driveとDropbox的な関係).
+有名どころ 
+
+- Github
 
 - Gitlab
 
 - Bitbucket
 
-できることは大差ないので,お財布事情とUIの好みの問題.
+Githubがやたら有名だが他にもある (Google driveとDropbox的な関係).
+
+できることは大差ないので,お財布事情とUIの好みの問題
+
+(あとは狸と猫のどっちが好きかとか...バケツ...).
+
+
+<div align="center">
+<img src="http://www-creators.com/wp-content/uploads/2017/02/SERVICES-680x220.png" width="750px">
+</div>
+
+---
+
+### Github
+
+- とにかく有名 (連携サービスが多いイメージ).
+
+- お金たくさん持ってく.
+
+- Github Educationとか言う学生プランに加入するとGithub含め色々な有名サービスが無料で使える.
+
+- 本田圭佑がいる
+
+- 他の2つと違い自前のCIとかはない(他のツールと組み合わせる前提OSSの思想的には○?)
 
 ---
 
 ### Gitlab
 
-正確にはGitサーバでもある.
+- どちらかというと,自組織のサーバにインストールして自分たちしかアクセスできないRemote repositoryとして使う (要するに自前のfile server的なやつ)オンプレミス版のほうが有名.
 
-自組織のサーバにインストールして,自分たちしかアクセスできないRemote repositoryとして使う (要するに自前のfile server的なやつ).
 
-Slackを水で薄めたようなchatアプリがついてくるので,これひとつで開発に必要なすべての作業を完結させることができる.
+- Slackを水で薄めたようなchatアプリやCIがついてくるので,これひとつで開発に必要なすべての作業を完結させることができる.
 
-大人の事情でPublic cloudであるGithubを使えない人たちが使ってるっぽい(NASAとか).
+- 大人の事情でPublic臭の強いGithubとかSlackとかを使えない人たちが使ってるっぽい(NASAとか).
+
+
+---
 
 ### Bitbucket 
 
-一昔前までPrivate repository(外部公開されない) 作り放題な唯一のサービスだったので,個人の利用者が多くいた(今は,Githubも作り放題).
+- 一昔前までPrivate repository(外部公開されない) 作り放題な唯一のサービスだったので,個人の利用者が多くいた(今は,Githubも作り放題).
 
-Source treeの開発元でもあるAtlassianの製品.
+- Source treeの開発元でもあるAtlassianの製品.
 
-なぜrepositoryホスティングサービスでのみGithubに遅れをとっているのか不思議.
+- お金ないらしい(最近値上げした).
 
+---
 
-<div align="center">
-<img src="https://www.git-tower.com/learn/content/01-git/01-ebook/en/01-command-line/04-remote-repositories/01-introduction/basic-remote-workflow.png" width="450px">
-</div>
+### 比較
 
-<table>
-<thead>
-<tr>
-<th>コラボレーター数</th>
-<th style="text-align: right">GitHub.com</th>
-<th style="text-align: right">BitBucket.org(現在)</th>
-<th style="text-align: right">BitBucket.org Free(将来)</th>
-<th style="text-align: right">BitBucket.org Standard(将来)</th>
-<th style="text-align: right">GitLab.com</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>3名</td>
-<td style="text-align: right">$0</td>
-<td style="text-align: right">$0</td>
-<td style="text-align: right">$0</td>
-<td style="text-align: right">$10</td>
-<td style="text-align: right">$0</td>
-</tr>
-<tr>
-<td>5名</td>
-<td style="text-align: right">$25</td>
-<td style="text-align: right">$0</td>
-<td style="text-align: right">$0</td>
-<td style="text-align: right">$10</td>
-<td style="text-align: right">$0</td>
-</tr>
-<tr>
-<td>10名</td>
-<td style="text-align: right">$70</td>
-<td style="text-align: right">$10</td>
-<td style="text-align: right">N/A</td>
-<td style="text-align: right">$20</td>
-<td style="text-align: right">$0</td>
-</tr>
-<tr>
-<td>11名</td>
-<td style="text-align: right">$79</td>
-<td style="text-align: right">$25</td>
-<td style="text-align: right">N/A</td>
-<td style="text-align: right">$22</td>
-<td style="text-align: right">$0</td>
-</tr>
-<tr>
-<td>100名</td>
-<td style="text-align: right">$880</td>
-<td style="text-align: right">$100</td>
-<td style="text-align: right">N/A</td>
-<td style="text-align: right">$200</td>
-<td style="text-align: right">$0</td>
-</tr>
-<tr>
-<td>無制限</td>
-<td style="text-align: right">N/A</td>
-<td style="text-align: right">$200</td>
-<td style="text-align: right">N/A</td>
-<td style="text-align: right">N/A</td>
-<td style="text-align: right">$0</td>
-</tr>
-</tbody>
-</table>
+https://stackshare.io/stackups/bitbucket-vs-github-vs-gitlab
+
+2019 2月現在,各サービスの無料プランの状況
+
+                       Github    Bitbucket   Github (学生)   Bitbucket (学生)   GitLab
+  -------------------- --------- ----------- --------------- ------------------ -----------
+  private repository   無制限    無制限      無制限          無制限             無制限
+  public repository    無制限    無制限      無制限          無制限             無制限
+  collaborator         3名まで   5名まで     無制限          無制限             無制限
+  CI build time        \-        50分/月     \-              500分/月           2000分/月
+  LFS                  1GB       1GB         1GB             5GB                無制限?
+  LFS Bandwidth        1GB/月    無制限      1GB/月          無制限             無制限?
 
 ## git clone
 
@@ -116,9 +95,32 @@ remote repositoryのcopyをlocalに作る.(= ダウンロード)
 
 ## git fetch
 
-## git push
+remote repository(のタグとcommit)を同期する
 
 ## git pull
 
-# Github Flow
+`git pull [--rebase] <remote> <branch>`
+
+`git fetch` と `git merge origin/master` をまとめてやる(`--rebase`つけると`git rebase origin/master`になる)
+
+## git push
+
+`git push <remote> <branch>`
+
+remoteの`<branch>`タグをlocalの`<branch>`タグの位置に同期させる(Conflictする場合はpushできない).
+
+FYI: remote側で起こる動作は,`<origin>`/`<branch>`に`checkout`して
+
+`git merge --ff-only <branch>`
+
+したときに起こる動作と同じと考えることができる.
+
+`--ff-only`勉強しといてよかったね!!!?
+
+
+## Github Flow
+
+<div align="center">
+<img src="https://camo.qiitausercontent.com/bbb6ba70f058f0d10c8f7a769ae8fd089dc7684e/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f35333330392f30363134303132312d613062362d343237662d633134392d3638353863313439373338652e706e67" width="450px">
+</div>
 
