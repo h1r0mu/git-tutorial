@@ -93,9 +93,17 @@ remote repositoryのcopyをlocalに作る.(= ダウンロード)
 
 `git clone <repository>`
 
+<div align="center">
+<img src="./fig/clone.gif" width="850px">
+</div>
+
 ## git fetch
 
 remote repository(のタグとcommit)を同期する
+
+<div align="center">
+<img src="./fig/fetch.gif" width="850px">
+</div>
 
 ## git pull
 
@@ -103,11 +111,19 @@ remote repository(のタグとcommit)を同期する
 
 `git fetch` と `git merge origin/master` をまとめてやる(`--rebase`つけると`git rebase origin/master`になる)
 
+<div align="center">
+<img src="./fig/pull.gif" width="850px">
+</div>
+
 ## git push
 
 `git push <remote> <branch>`
 
 remoteの`<branch>`タグをlocalの`<branch>`タグの位置に同期させる(Conflictする場合はpushできない).
+
+<div align="center">
+<img src="./fig/push.gif" width="850px">
+</div>
 
 FYI: remote側で起こる動作は,`<origin>`/`<branch>`に`checkout`して
 
