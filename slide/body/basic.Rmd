@@ -43,7 +43,7 @@ Google driveでできなくいことの例
 
 ---
 
-- こうならないですむ 
+- あとこうならないですむ 
 
 <div align="center">
 <img src="./fig/backup_hell.png" width="650px">
@@ -81,7 +81,7 @@ Commit (directoryのスナップショット)からなるツリー.
 ### どういうときに思い出すべき?
 
 - branchの操作 (branch, checkout, reset, rebase, push, pull)
-- commitの操作 (reset, cherry-pick, revert)
+- commitの操作 (reset, cherry-pick)
 
 ## Three areas 
 
@@ -101,6 +101,7 @@ Commit (directoryのスナップショット)からなるツリー.
 ### どういうときに思い出すべき?
 
 - 特定のCommitの変更 (reset, checkout)
+- 特定のfileの操作 (add, rm, mv, reset, stash)
 
 ## File status 
 
@@ -120,7 +121,7 @@ fileには4つの状態がある
 
 ### どういうときに思い出すべき?
 
-- 特定のfileの操作 (add, rm, mv, reset)
+- 特定のfileの操作 (add, rm, mv, reset, stash)
 
 ## おめでとう 
 
