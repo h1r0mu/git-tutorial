@@ -19,3 +19,33 @@ Githubでは,push -fできないようにbranchをprotectすることも可
 
 やってしまっても大概なんとかなるけど,他の人にすごく迷惑がかかるので,喧嘩売りたいとき以外はやめましょう.
 
+
+## Gitで積極的にやるべきこと 
+
+### 即Issueを起てる,即Branchを切る 
+
+何かしようと思ったらとりあえずIssue起てる.
+
+### Commit messageにIssue番号を含める
+
+`Added some files. #1` のようにすると1番のIssueのページから当該のCommitが見れるようになりトラッキングが楽.
+
+### 労う
+
+
+---
+
+よいPRには,LGTM (Looks Good To Me) を送りましょう.
+
+<div class="column-right">
+<div align="center">
+<img src="http://i.imgur.com/JNx7GVS.gif" width="450px">
+</div>
+</div>
+<div class="column-left">
+<div align="center">
+<img src="https://66.media.tumblr.com/8ab4ccac32040179410ea99509e43d58/tumblr_inline_pk03u2iESS1qa5y5a_500.gif" width="450px">
+</div>
+</div>
+
+
