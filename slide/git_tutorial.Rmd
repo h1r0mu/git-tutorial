@@ -10,8 +10,17 @@ output:
     toc: true
     number_sections: true
 ---
-
 <style type="text/css">
+.column-left{
+  float: left;
+  width: 47.5%;
+  text-align: left;
+}
+.column-right{
+  float: right;
+  width: 47.5%;
+  text-align: left;
+}
     pre { 
     font-size: 14px;
     }
