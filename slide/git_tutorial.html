@@ -4854,7 +4854,7 @@ ROW001
 
 </article></slide><slide class=""><hgroup><h2>git pull</h2></hgroup><article  class="smaller " id="git-pull">
 
-<p><code>git pull [--rebase] &lt;remote&gt; &lt;branch&gt;</code></p>
+<p><code>git pull [--rebase|--no-ff] &lt;remote&gt; &lt;branch&gt;</code></p>
 
 <p><code>git fetch</code> と <code>git merge origin/master</code> をまとめてやる(<code>--rebase</code>つけると<code>git rebase origin/master</code>になる)</p>
 
@@ -4959,6 +4959,33 @@ ROW001
 </ul>
 
 <p>1つの研究の原稿は同じRepositoryで管理し,研究会-&gt;国際会議-&gt;修論などのようにVersionアップするたびにreleaseしていくといいんじゃない?</p>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Exercise</h2></hgroup><article  class="smaller " id="exercise">
+
+</article></slide><slide class=""><hgroup><h2>Exercise</h2></hgroup><article  class="smaller " id="exercise-1">
+
+<ol>
+<li>(私が)HPの自己紹介文の更新みたいなタスクでIssue起てる</li>
+<li>PC内の適当なところに<code>git clone https://github.com/h1r0mu/git-tutorial.git</code></li>
+<li><code>git branch feature/issue番号-自分の名前</code> とかでbranchを切ってcheckout</li>
+<li><code>slide/body/内に</code>自分の名前.mdを作って,Markdownのリストで自己紹介文を書く</li>
+<li>AddしてCommitしてPushしてPR出す</li>
+<li>コメントをつけるので,修正してPushする</li>
+</ol>
+
+<ul>
+<li>他の人のPRがMergeされたらpullでmasterを更新してfeatureにrebaseする</li>
+</ul>
+
+<h3>Markdownの箇条書きリストの書き方</h3>
+
+<pre class = 'prettyprint lang-md'>- リスト1
+    - ネスト リスト1_1
+        - ネスト リスト1_1_1
+        - ネスト リスト1_1_2
+    - ネスト リスト1_2
+- リスト2
+- リスト3</pre>
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>gitのgit</h2></hgroup><article  class="smaller " id="gitgit">
 

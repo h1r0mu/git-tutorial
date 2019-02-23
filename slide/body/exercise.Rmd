@@ -1,0 +1,22 @@
+## Exercise
+
+1. (私が)HPの自己紹介文の更新みたいなタスクでIssue起てる
+1. PC内の適当なところに`git clone https://github.com/h1r0mu/git-tutorial.git`
+1. `git branch feature/issue番号-自分の名前` とかでbranchを切ってcheckout
+1. `slide/body/内に`自分の名前.mdを作って,Markdownのリストで自己紹介文を書く
+1. AddしてCommitしてPushしてPR出す
+1. コメントをつけるので,修正してPushする
+- 他の人のPRがMergeされたらpullでmasterを更新してfeatureにrebaseする
+
+### Markdownの箇条書きリストの書き方
+
+```{md}
+- リスト1
+    - ネスト リスト1_1
+        - ネスト リスト1_1_1
+        - ネスト リスト1_1_2
+    - ネスト リスト1_2
+- リスト2
+- リスト3
+```
+
