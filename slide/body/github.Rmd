@@ -107,7 +107,7 @@ remote repository(のタグとcommit)を同期する
 
 ## git pull
 
-`git pull [--rebase] <remote> <branch>`
+`git pull [--rebase|--no-ff] <remote> <branch>`
 
 `git fetch` と `git merge origin/master` をまとめてやる(`--rebase`つけると`git rebase origin/master`になる)
 
