@@ -26,6 +26,11 @@ output:
     }
 </style>
 
+# Adobe readerをやめてGit+Githubにしたら捗った話
+
+```{r child="./body/introduction.Rmd"}
+```
+
 # Git
 
 ```{r child="./body/basic.Rmd"}
