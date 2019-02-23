@@ -69,6 +69,11 @@ output:
 ```{r child="./body/n_knock.Rmd"}
 ```
 
+# References 
+
+```{r child="./body/reference.Rmd"}
+```
+
 
 
 /* # 最初のコミット */
