@@ -48,6 +48,11 @@ output:
 ```{r child="./body/github.Rmd"}
 ```
 
+# Exercise
+
+```{r child="./body/exercise.Rmd"}
+```
+
 # gitのgit
 
 # 最初のコミット
