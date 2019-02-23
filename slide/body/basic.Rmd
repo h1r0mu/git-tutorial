@@ -15,13 +15,31 @@
 
 </div>
 
----
 
-### Gitってなんだよ
+## Gitってなんだよ
 
 プログラムのソースコードなどの変更履歴を記録・追跡するための分散型バージョン管理システムだよ.
 
-### なにができんだよ
+## 作った人 
+
+<div class="column-left">
+<div align="center">
+<img src="https://thumbs.gfycat.com/EmptyArcticGermanpinscher-max-1mb.gif" width="450px">
+</div>
+</div>
+
+<div class="column-right">
+**リーナス・トーバルズ**
+
+- Linux作った人(GitはLinux開発のためのツールとして作ったらしい)
+- 開発当時,有名なOSの教授とお互いのOSを貶し合ってめちゃくちゃ喧嘩したのが有名
+- Contributerに暴言を吐きまくりながらLinux Kernelの開発を続けている
+- 最近,人の気持を学んでくるとか言って自主謹慎した
+- 優しい終身の独裁者(OSSコミュニティのリーダをこう呼ぶ)の一人
+- 優しい...
+</div>
+
+## なにができんだよ
 
 fileの変更履歴を保存しておいて,あとから好きな時点の状態に復元できるよ.
 
