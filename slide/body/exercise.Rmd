@@ -5,6 +5,7 @@
 1. `git branch feature/issue番号-自分の名前` とかでbranchを切ってcheckout
 1. `slide/body/内に`自分の名前.mdを作って,Markdownのリストで自己紹介文を書く
 1. AddしてCommitしてPushしてPR出す
+   - Commit messageを`Added a self-introduction slide. #<Issue番号>`のようにする
 1. コメントをつけるので,修正してPushする
 - 他の人のPRがMergeされたらpullでmasterを更新してfeatureにrebaseする
 
