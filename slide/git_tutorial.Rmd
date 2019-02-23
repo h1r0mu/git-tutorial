@@ -53,6 +53,12 @@ output:
 ```{r child="./body/github.Rmd"}
 ```
 
+# Taboo
+
+```{r child="./body/taboo.Rmd"}
+
+```
+
 # Exercise
 
 ```{r child="./body/exercise.Rmd"}
@@ -64,10 +70,9 @@ output:
 ```
 
 
-# gitのgit
 
-# 最初のコミット
+/* # 最初のコミット */
 
-# ブロックチェーンとGit
+/* # ブロックチェーンとGit */
 
-# Gitの名前の由来
+/* # Gitの名前の由来 */
