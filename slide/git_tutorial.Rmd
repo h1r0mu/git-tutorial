@@ -39,8 +39,6 @@ output:
 ```{r child="./body/github.Rmd"}
 ```
 
-# merge VS rebase 
-
 # gitのgit
 
 # 最初のコミット
