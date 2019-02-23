@@ -58,3 +58,9 @@ GithubのIssue,Pull request(PR)のレビュー機能を用いることで,先輩
 もちろん,原稿執筆だけでなく,ソースコードやVimの設定ファイルとかの管理にも使える.
 
 Git使おう.
+
+## git pushでやらかして頭が真っ白になった話 
+
+[git pushでやらかして頭が真っ白になった話](https://helen.hatenablog.com/entry/2015/11/03/001910)
+
+ちゃんと勉強してから使おう.
