@@ -45,12 +45,12 @@ GithubのIssue,Pull request(PR)のレビュー機能を用いることで,先輩
 
   - 一連の流れ
     1. (先輩) Issueを起てる (ゴールを明示する)
-    2. (後輩) Issueに対応するBranchをmasterから切る
-    3. (後輩) Issueを解決するCommitを作りPush,Pull request(PR)をmasterに出す
-    4. (先輩) Pull requestをレビューする
-    5. (後輩) レビューで指摘された箇所を修正するCommitを作りPushする (指摘がなければ6.へ進む)
-    6. (先輩) 指摘箇所が修正されていることを確認して,PRをmasterへmergeする
-    7. (先輩) いいね(e.g., 👍)を送って労う.
+    1. (後輩) Issueに対応するBranchをmasterから切る
+    1. (後輩) Issueを解決するCommitを作りPush,Pull request(PR)をmasterに出す
+    1. (先輩) Pull requestをレビューする
+    1. (後輩) レビューで指摘された箇所を修正するCommitを作りPushする (指摘がなければ6.へ進む)
+    1. (先輩) 指摘箇所が修正されていることを確認して,PRをmasterへmergeする
+    1. (先輩) いいね(e.g., 👍)を送って労う.
 
 
 ---
