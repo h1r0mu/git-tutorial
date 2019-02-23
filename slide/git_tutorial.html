@@ -3117,9 +3117,9 @@ if (document.readyState !== "loading" &&
     }
 </style>
 
-<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Git</h2></hgroup><article  id="git" class="smaller ">
+<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Git</h2></hgroup><article  class="smaller " id="git">
 
-</article></slide><slide class=""><hgroup><h2>今日の趣旨</h2></hgroup><article  id="section" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>今日の趣旨</h2></hgroup><article  class="smaller " id="section">
 
 <ul>
 <li>gitを覚える (頭で)</li>
@@ -3132,7 +3132,7 @@ if (document.readyState !== "loading" &&
 <p>重犯罪人に自分の罪を思い知らせるなら、土を掘り移動させ、それからまた埋めて元に戻す、という作業を延々と繰り返させればよい。それは究極の拷問であり、最後には精神に異常をきたすであろう。(ドフトエフスキー?)</p>
 </blockquote></div>
 
-</article></slide><slide class=""><hgroup><h2>頭で覚えること</h2></hgroup><article  id="section-1" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>頭で覚えること</h2></hgroup><article  class="smaller " id="section-1">
 
 <p>Gitには3つの視点がある</p>
 
@@ -3144,7 +3144,7 @@ if (document.readyState !== "loading" &&
 
 <p>これらを理解すればGit master.</p>
 
-</article></slide><slide class=""><hgroup><h2>Commit tree</h2></hgroup><article  id="commit-tree" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Commit tree</h2></hgroup><article  class="smaller " id="commit-tree">
 
 <p>Commit (directoryのスナップショット)からなるツリー.</p>
 
@@ -3167,7 +3167,7 @@ if (document.readyState !== "loading" &&
 <li>commitの操作 (reset, cherry-pick, revert)</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Three areas</h2></hgroup><article  id="three-areas" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Three areas</h2></hgroup><article  class="smaller " id="three-areas">
 
 <p>1つのCommitの裏には3つのレイヤがある</p>
 
@@ -3188,7 +3188,7 @@ if (document.readyState !== "loading" &&
 <li>特定のCommitの変更 (reset, checkout)</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>File status</h2></hgroup><article  id="file-status" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>File status</h2></hgroup><article  class="smaller " id="file-status">
 
 <p>fileには4つの状態がある</p>
 
@@ -3210,13 +3210,13 @@ if (document.readyState !== "loading" &&
 <li>特定のfileの操作 (add, rm, mv, reset)</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>おめでとう</h2></hgroup><article  id="section-5" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>おめでとう</h2></hgroup><article  class="smaller " id="section-5">
 
 <p>あなたは,gitマスターになりました.</p>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>add, commit, reset</h2></hgroup><article  id="add-commit-reset" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>add, commit, reset</h2></hgroup><article  class="smaller " id="add-commit-reset">
 
-</article></slide><slide class=""><hgroup><h2>git status</h2></hgroup><article  id="git-status" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git status</h2></hgroup><article  class="smaller " id="git-status">
 
 <p>異世界に行ったら最初に唱える呪文.</p>
 
@@ -3238,19 +3238,19 @@ cd repo000</pre>
 <div align="center">
 <p><img src="https://git-scm.com/book/en/v2/images/lifecycle.png" width="650px"></p></div>
 
-</article></slide><slide class=""><hgroup><h2>git init</h2></hgroup><article  id="git-init" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git init</h2></hgroup><article  class="smaller " id="git-init">
 
 <p>カレントディレクトリをgit repositoryにする</p>
 
 <pre class = 'prettyprint lang-sh'>git init </pre>
 
-</article></slide><slide class=""><hgroup><h2>git initをなかったことにする</h2></hgroup><article  id="git-init-1" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git initをなかったことにする</h2></hgroup><article  class="smaller " id="git-init-1">
 
 <p>カレントディレクトリからgit direcoryを削除する</p>
 
 <pre class = 'prettyprint lang-sh'>rm -R .git</pre>
 
-</article></slide><slide class=""><hgroup><h2>git add</h2></hgroup><article  id="git-add" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git add</h2></hgroup><article  class="smaller " id="git-add">
 
 <p>ファイルをStaged areaに追加する.</p>
 
@@ -3278,7 +3278,7 @@ git add file000</pre>
 <div align="center">
 <p><img src="https://git-scm.com/book/en/v2/images/reset-ex2.png" width="650px"></p></div>
 
-</article></slide><slide class=""><hgroup><h2>git addをなかったことにする</h2></hgroup><article  id="git-add-1" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git addをなかったことにする</h2></hgroup><article  class="smaller " id="git-add-1">
 
 <ul>
 <li>新規ファイルの場合
@@ -3302,7 +3302,7 @@ git add file000</pre>
 
 <pre class = 'prettyprint lang-sh'>git reset HEAD</pre>
 
-</article></slide><slide class=""><hgroup><h2>git commit</h2></hgroup><article  id="git-commit" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git commit</h2></hgroup><article  class="smaller " id="git-commit">
 
 <p>staged(git add)されたすべてのファイルのコピーをGit Directoryへ記録する</p>
 
@@ -3318,7 +3318,7 @@ git add file000</pre>
 <div align="center">
 <p><img src="https://git-scm.com/book/en/v2/images/reset-ex3.png" width="650px"></p></div>
 
-</article></slide><slide class=""><hgroup><h2>git commitをなかったことにする</h2></hgroup><article  id="git-commit-1" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git commitをなかったことにする</h2></hgroup><article  class="smaller " id="git-commit-1">
 
 <p>Git Directoryから最後のCommitを削除する</p>
 
@@ -3338,7 +3338,7 @@ git reset HEAD </pre>
 
 <pre class = 'prettyprint lang-sh'>git reset HEAD^ </pre>
 
-</article></slide><slide class=""><hgroup><h2>git commitをなかったことにしたのをなかったことに</h2></hgroup><article  id="git-commit-2" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git commitをなかったことにしたのをなかったことに</h2></hgroup><article  class="smaller " id="git-commit-2">
 
 <pre class = 'prettyprint lang-sh'>$ git reflog
 e170b24 (HEAD -&gt; master) HEAD@{0}: reset: moving to HEAD^
@@ -3347,7 +3347,7 @@ e170b24 (HEAD -&gt; master) HEAD@{0}: reset: moving to HEAD^
 
 <pre class = 'prettyprint lang-sh'>git reset HEAD@{1} # HEAD@{1} = 1つ前にHEADの指していたcommit</pre>
 
-</article></slide><slide class=""><hgroup><h2>git reset</h2></hgroup><article  id="git-reset" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git reset</h2></hgroup><article  class="smaller " id="git-reset">
 
 <iframe src="https://www.slideshare.net/slideshow/embed_code/key/3BCgttHAboVzqg?startSlide=30" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen>
 
@@ -3804,9 +3804,9 @@ HEAD
 
 <p><code>git reset --hard</code> するときは気をつけよう.</p>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>rm, mv</h2></hgroup><article  id="rm-mv" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>rm, mv</h2></hgroup><article  class="smaller " id="rm-mv">
 
-</article></slide><slide class=""><hgroup><h2>git rm –cached</h2></hgroup><article  id="git-rm-cached" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git rm –cached</h2></hgroup><article  class="smaller " id="git-rm-cached">
 
 <p>ファイルをStaged areaとGit directoryから削除する</p>
 
@@ -3825,7 +3825,7 @@ git add file000 # tracked(gitの追跡対象指定)にする</pre>
 
 <pre class = 'prettyprint lang-sh'>git rm --cached file000</pre>
 
-</article></slide><slide class=""><hgroup><h2>.gitignore</h2></hgroup><article  id="gitignore" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>.gitignore</h2></hgroup><article  class="smaller " id="gitignore">
 
 <p>一生untrackedにしておきたいfileやdirectoryは<code>,.gitignore</code>というfileを作ってそこに書く.</p>
 
@@ -3836,7 +3836,7 @@ git add file000 # tracked(gitの追跡対象指定)にする</pre>
 <div align="center">
 <p><img src="http://slazebni.cs.illinois.edu/fall18/orly.jpg" width="650px"></p></div>
 
-</article></slide><slide class=""><hgroup><h2>git rm</h2></hgroup><article  id="git-rm" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git rm</h2></hgroup><article  class="smaller " id="git-rm">
 
 <p>ファイルをWorking Directory, Staged area, Git directoryのすべてから削除する.</p>
 
@@ -3855,7 +3855,7 @@ git reset --hard HEAD^ # HEAD^ = 1つ前の親Commit</pre>
 <pre class = 'prettyprint lang-sh'>git rm file000
 git commit -m &quot;Removed file000.&quot;</pre>
 
-</article></slide><slide class=""><hgroup><h2>git mv</h2></hgroup><article  id="git-mv" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git mv</h2></hgroup><article  class="smaller " id="git-mv">
 
 <p>ファイルをWorking Directory, Staged area, Git directoryのすべてにおいてmoveまたはrenameする.</p>
 
@@ -3869,9 +3869,9 @@ git reset --hard HEAD^</pre>
 <pre class = 'prettyprint lang-sh'>git mv file000 file001
 git commit -m &quot;Renamed file000 to file001.&quot;</pre>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>commit –amend, rebase</h2></hgroup><article  id="commit-amend-rebase" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>commit –amend, rebase</h2></hgroup><article  class="smaller " id="commit-amend-rebase">
 
-</article></slide><slide class=""><hgroup><h2>git commit –amend</h2></hgroup><article  id="git-commit-amend" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git commit –amend</h2></hgroup><article  class="smaller " id="git-commit-amend">
 
 <p>最後のCommitを変更する</p>
 
@@ -3888,7 +3888,7 @@ git commit -m &quot;Added file000.&quot;</pre>
 <pre class = 'prettyprint lang-sh'>git add file001 
 git commit --amend -m &quot;Added file000 and file001.&quot;</pre>
 
-</article></slide><slide class=""><hgroup><h2>git rebase</h2></hgroup><article  id="git-rebase" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git rebase</h2></hgroup><article  class="smaller " id="git-rebase">
 
 <p>直前だけじゃなく,もっと前まで遡って自分の都合の良いように歴史を改変したい</p>
 
@@ -4112,13 +4112,13 @@ Once you are satisfied with your changes, run
 
 <pre class = 'prettyprint lang-sh'>git rebase --continue</pre>
 
-</article></slide><slide class=""><hgroup><h2>git rebaseをなかったことにする</h2></hgroup><article  id="git-rebase-1" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git rebaseをなかったことにする</h2></hgroup><article  class="smaller " id="git-rebase-1">
 
 <p>rebaseの途中でやっぱりやめたくなった</p>
 
 <pre class = 'prettyprint lang-sh'>git rebase --abort</pre>
 
-</article></slide><slide class=""><hgroup><h2>git rebaseをなかったことにする</h2></hgroup><article  id="git-rebase-2" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git rebaseをなかったことにする</h2></hgroup><article  class="smaller " id="git-rebase-2">
 
 <p>rebaseしたあと,やっぱりなかったことにしたくなった</p>
 
@@ -4133,7 +4133,7 @@ Once you are satisfied with your changes, run
 |/
 * 2312317 Added file000.</pre>
 
-</article></slide><slide class=""><hgroup><h2>git rebaseをなかったことにする</h2></hgroup><article  id="git-rebase-3" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git rebaseをなかったことにする</h2></hgroup><article  class="smaller " id="git-rebase-3">
 
 <p>見えないcommitをたどるにはreflog.</p>
 
@@ -4148,7 +4148,7 @@ ecc3571 HEAD@{2}: rebase -i (edit): 「もしかして:再帰」をクリック�
 
 <pre class = 'prettyprint lang-sh'>git reset --hard HEAD@{5} # HEAD@{5} = 5つ前にHEADの指していたcommit</pre>
 
-</article></slide><slide class=""><hgroup><h2>git rebaseをなかったことにしたのをなかったことにする</h2></hgroup><article  id="git-rebase-4" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git rebaseをなかったことにしたのをなかったことにする</h2></hgroup><article  class="smaller " id="git-rebase-4">
 
 <pre class = 'prettyprint lang-sh'>$ git reflog
 92b7c29 (HEAD -&gt; master) HEAD@{0}: reset: moving to HEAD@{5} # &lt;-- さっきのreset
@@ -4162,16 +4162,16 @@ ecc3571 HEAD@{3}: rebase -i (edit): 「もしかして:再帰」をクリック�
 
 <pre class = 'prettyprint lang-sh'>git reset --hard HEAD@{1} </pre>
 
-</article></slide><slide class=""><hgroup><h2>git rebaseまとめ</h2></hgroup><article  id="git-rebase-5" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git rebaseまとめ</h2></hgroup><article  class="smaller " id="git-rebase-5">
 
 <ul>
 <li>指定したcommitを分岐点として改変された歴史作る</li>
 <li>途中でわけわかんなくなったら–abort</li>
 </ul>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>branch</h2></hgroup><article  id="branch" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>branch</h2></hgroup><article  class="smaller " id="branch">
 
-</article></slide><slide class=""><hgroup><h2>git log</h2></hgroup><article  id="git-log" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git log</h2></hgroup><article  class="smaller " id="git-log">
 
 <p>基本の呪文 Commit treeを表示する</p>
 
@@ -4205,7 +4205,7 @@ f8c8773e 2019-02-19 10:31  │ ● ameono Added file001.
 <div align="center">
 <p><img src="https://git-scm.com/book/en/v2/images/advance-master.png" width="650px"></p></div>
 
-</article></slide><slide class=""><hgroup><h2>git branch</h2></hgroup><article  id="git-branch" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git branch</h2></hgroup><article  class="smaller " id="git-branch">
 
 <pre class = 'prettyprint lang-sh'># 準備
 cd path/to/workspace
@@ -4220,7 +4220,7 @@ git commit -m &quot;Added file000.&quot;</pre>
 
 <p>feature/branch000という名前のタグを作る(指す先はmasterの指しているところ)</p>
 
-</article></slide><slide class=""><hgroup><h2>git branchをなかったことにする(branchを削除する)</h2></hgroup><article  id="git-branchbranch" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git branchをなかったことにする(branchを削除する)</h2></hgroup><article  class="smaller " id="git-branchbranch">
 
 <pre class = 'prettyprint lang-sh'>git branch -d feature/update_file000</pre>
 
@@ -4228,7 +4228,7 @@ git commit -m &quot;Added file000.&quot;</pre>
 
 <pre class = 'prettyprint lang-sh'>git branch -D feature/update_file000</pre>
 
-</article></slide><slide class=""><hgroup><h2>branchの削除をなかったことにする</h2></hgroup><article  id="branch-1" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>branchの削除をなかったことにする</h2></hgroup><article  class="smaller " id="branch-1">
 
 <pre class = 'prettyprint lang-sh'>$ git branch -d feature/update_file000
 Deleted branch feature/update_file000 (was e170b24). # &lt;-- ここのhashを覚えておく </pre>
@@ -4236,7 +4236,7 @@ Deleted branch feature/update_file000 (was e170b24). # &lt;-- ここのhashを�
 <pre class = 'prettyprint lang-sh'>git checkout e170b24 
 git checkout -b feature/update_file000</pre>
 
-</article></slide><slide class=""><hgroup><h2>git checkout</h2></hgroup><article  id="git-checkout" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git checkout</h2></hgroup><article  class="smaller " id="git-checkout">
 
 <p><code>git checkout [-b] [&lt;branch&gt;|&lt;commit&gt;]</code></p>
 
@@ -4300,13 +4300,13 @@ git commit -m &quot;Added file001.&quot;</pre>
 
 <pre class = 'prettyprint lang-sh'>git log --oneline --graph --all</pre>
 
-</article></slide><slide class=""><hgroup><h2>git merge</h2></hgroup><article  id="git-merge" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git merge</h2></hgroup><article  class="smaller " id="git-merge">
 
 <p>他のbranchの先端と今のbranchの先端を統合するcommitを作る</p>
 
 <p><code>git merge [&lt;branch&gt;]</code></p>
 
-</article></slide><slide class=""><hgroup><h2>git merge</h2></hgroup><article  id="git-merge-1" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git merge</h2></hgroup><article  class="smaller " id="git-merge-1">
 
 <p>GithubでPull requestをmergeするときはこんな感じのことをしている.</p>
 
@@ -4346,7 +4346,7 @@ git merge --no-ff feature/update_file000</pre>
 
 <p>Merge commitがまたできている.</p>
 
-</article></slide><slide class=""><hgroup><h2>git mergeをなかったことにする</h2></hgroup><article  id="git-merge-2" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git mergeをなかったことにする</h2></hgroup><article  class="smaller " id="git-merge-2">
 
 <pre class = 'prettyprint lang-sh'>$ git log --oneline --graph --all
 *   500adbb (HEAD -&gt; master) Merge branch &#39;feature/update_file000&#39;
@@ -4362,7 +4362,7 @@ git merge --no-ff feature/update_file000</pre>
 
 <p>master tagとupdate_file000 tagをそれぞれMerge前の位置に戻せば良い.</p>
 
-</article></slide><slide class=""><hgroup><h2>(Interruption) HEADについて</h2></hgroup><article  id="interruption-head" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>(Interruption) HEADについて</h2></hgroup><article  class="smaller " id="interruption-head">
 
 <p>(復習) HEAD^ = 1つ前の親Commit</p>
 
@@ -4407,7 +4407,7 @@ Date:   Sat Feb 16 21:28:33 2019 +0900
 <li><a href='mailto:HEAD@%7BN' title=''>HEAD@{N</a>} = N個前にHEADが指していたCommit</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>git mergeをなかったことにする (続き)</h2></hgroup><article  id="git-merge-" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git mergeをなかったことにする (続き)</h2></hgroup><article  class="smaller " id="git-merge-">
 
 <p>masterのMergeをなかったことに</p>
 
@@ -4438,7 +4438,7 @@ git reset --hard HEAD^ </pre>
 
 <p>今までの話が理解できていれば,mergeをなかったことにしたのをなかったことにもできるはず.</p>
 
-</article></slide><slide class=""><hgroup><h2>git merge –no-ff について</h2></hgroup><article  id="git-merge-no-ff-" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git merge –no-ff について</h2></hgroup><article  class="smaller " id="git-merge-no-ff-">
 
 <pre class = 'prettyprint lang-sh'>(復習)
 git checkout feature/update_file000
@@ -4472,7 +4472,7 @@ git merge feature/update_file000</pre>
 <div style="margin-bottom:5px">
 <strong> <a href="https://www.slideshare.net/kotas/git-15276118" title="こわくない Git" target="_blank">こわくない Git</a> </strong> from <strong><a href="https://www.slideshare.net/kotas" target="_blank">Kota Saito</a></strong></div>
 
-</article></slide><slide class=""><hgroup><h2>git rebase</h2></hgroup><article  id="git-rebase-6" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git rebase</h2></hgroup><article  class="smaller " id="git-rebase-6">
 
 <p><code>git rebase [&lt;branch&gt;]</code></p>
 
@@ -4503,7 +4503,7 @@ $ git log --oneline --graph --all
 * cf7cb13 Updated file000 (added the second row).
 * e170b24 Added file000.</pre>
 
-</article></slide><slide class=""><hgroup><h2>git rebaseをなかったことにする</h2></hgroup><article  id="git-rebase-7" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git rebaseをなかったことにする</h2></hgroup><article  class="smaller " id="git-rebase-7">
 
 <p>まずはmasterを戻す.</p>
 
@@ -4550,7 +4550,7 @@ $ git log --oneline --graph --all
 <p>この指針に従っている限り、すべてはうまく進みます。もしこれを守らなければ、あなたは嫌われ者となり、友人や家族からも軽蔑されることになるでしょう。(Pro Git)</p>
 </blockquote>
 
-</article></slide><slide class=""><hgroup><h2>git cherry-pick</h2></hgroup><article  id="git-cherry-pick" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git cherry-pick</h2></hgroup><article  class="smaller " id="git-cherry-pick">
 
 <p><code>git cherry-pick &lt;commit&gt;...</code></p>
 
@@ -4575,7 +4575,7 @@ $ git log --oneline --graph --all
 
 <p>rebaseはcherry-pickを複数まとめてやっているだけとも言える.</p>
 
-</article></slide><slide class=""><hgroup><h2>Conflict</h2></hgroup><article  id="conflict" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Conflict</h2></hgroup><article  class="smaller " id="conflict">
 
 <pre class = 'prettyprint lang-sh'># 準備
 git reset --hard HEAD^
@@ -4593,7 +4593,7 @@ ROW002 &lt;- update_file000
 ROW001
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; master</pre>
 
-</article></slide><slide class=""><hgroup><h2>Conflictの解消法</h2></hgroup><article  id="conflict-1" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Conflictの解消法</h2></hgroup><article  class="smaller " id="conflict-1">
 
 <ol>
 <li>ConfilitしたファイルをEditerで編集する</li>
@@ -4601,7 +4601,7 @@ ROW001
 <li>merge-toolを使う</li>
 </ol>
 
-</article></slide><slide class=""><hgroup><h2>2. checkoutを使う方法</h2></hgroup><article  id="checkout" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>2. checkoutを使う方法</h2></hgroup><article  class="smaller " id="checkout">
 
 <pre class = 'prettyprint lang-sh'>git checkout --theirs file000</pre>
 
@@ -4616,7 +4616,7 @@ ROW001
 
 <p><strong>欠点</strong>: どういう結果になるか予想がつきにくい.</p>
 
-</article></slide><slide class=""><hgroup><h2>3. merge-toolを使う</h2></hgroup><article  id="merge-tool" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>3. merge-toolを使う</h2></hgroup><article  class="smaller " id="merge-tool">
 
 <p>merge-toolには<a href='https://japan.blogs.atlassian.com/2016/02/tips-tools-to-solve-git-conflicts/' title=''>色々ある</a>.</p>
 
@@ -4632,9 +4632,9 @@ ROW001
 
 <p><img src="https://www.jetbrains.com/help/img/idea/2018.3/resolveConflict.png" width="850px"></p>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Github</h2></hgroup><article  id="github" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Github</h2></hgroup><article  class="smaller " id="github">
 
-</article></slide><slide class=""><hgroup><h2>Githubってなんだよ</h2></hgroup><article  id="github-1" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Githubってなんだよ</h2></hgroup><article  class="smaller " id="github-1">
 
 <p>GitHub は世界最大の Remote Git リポジトリホスティングサービスだよ.</p>
 
@@ -4766,23 +4766,23 @@ ROW001
 </tr>
 </table>
 
-</article></slide><slide class=""><hgroup><h2>git clone</h2></hgroup><article  id="git-clone" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git clone</h2></hgroup><article  class="smaller " id="git-clone">
 
 <p>remote repositoryのcopyをlocalに作る.(= ダウンロード)</p>
 
 <p><code>git clone &lt;repository&gt;</code></p>
 
-</article></slide><slide class=""><hgroup><h2>git fetch</h2></hgroup><article  id="git-fetch" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git fetch</h2></hgroup><article  class="smaller " id="git-fetch">
 
 <p>remote repository(のタグとcommit)を同期する</p>
 
-</article></slide><slide class=""><hgroup><h2>git pull</h2></hgroup><article  id="git-pull" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git pull</h2></hgroup><article  class="smaller " id="git-pull">
 
 <p><code>git pull [--rebase] &lt;remote&gt; &lt;branch&gt;</code></p>
 
 <p><code>git fetch</code> と <code>git merge origin/master</code> をまとめてやる(<code>--rebase</code>つけると<code>git rebase origin/master</code>になる)</p>
 
-</article></slide><slide class=""><hgroup><h2>git push</h2></hgroup><article  id="git-push" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>git push</h2></hgroup><article  class="smaller " id="git-push">
 
 <p><code>git push &lt;remote&gt; &lt;branch&gt;</code></p>
 
@@ -4796,20 +4796,20 @@ ROW001
 
 <p><code>--ff-only</code>勉強しといてよかったね!!!?</p>
 
-</article></slide><slide class=""><hgroup><h2>Github Flow</h2></hgroup><article  id="github-flow" class="smaller ">
+</article></slide><slide class=""><hgroup><h2>Github Flow</h2></hgroup><article  class="smaller " id="github-flow">
 
 <div align="center">
 <p><img src="https://camo.qiitausercontent.com/bbb6ba70f058f0d10c8f7a769ae8fd089dc7684e/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f35333330392f30363134303132312d613062362d343237662d633134392d3638353863313439373338652e706e67" width="450px"></p></div>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>merge VS rebase</h2></hgroup><article  id="merge-vs-rebase" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>merge VS rebase</h2></hgroup><article  class="smaller " id="merge-vs-rebase">
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>gitのgit</h2></hgroup><article  id="gitgit" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>gitのgit</h2></hgroup><article  class="smaller " id="gitgit">
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>最初のコミット</h2></hgroup><article  id="section-9" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>最初のコミット</h2></hgroup><article  class="smaller " id="section-9">
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>ブロックチェーンとGit</h2></hgroup><article  id="git-1" class="smaller ">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>ブロックチェーンとGit</h2></hgroup><article  class="smaller " id="git-1">
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Gitの名前の由来</h2></hgroup><article  id="git-2" class="smaller "></article></slide>
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Gitの名前の由来</h2></hgroup><article  class="smaller " id="git-2"></article></slide>
 
 
   <slide class="backdrop"></slide>
