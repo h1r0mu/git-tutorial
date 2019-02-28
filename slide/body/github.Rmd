@@ -42,7 +42,7 @@ Githubがやたら有名だが他にもある (Google driveとDropbox的な関�
 
 - お金たくさん持ってく.
 
-- Github Educationとか言う学生プランに加入するとGithub含め色々な有名サービスが無料で使える.
+- [Github Education](https://education.github.com/)とか言う学生プランに加入するとGithub含め色々な有名サービスが無料で使える.
 
 - 本田圭佑がいる
 
@@ -94,7 +94,7 @@ remote repositoryのcopyをlocalに作る.(= ダウンロード)
 `git clone <repository>`
 
 <div align="center">
-<img src="./fig/clone.gif" width="750px">
+<img src="./fig/clone.svg" width="750px">
 </div>
 
 ## git fetch
@@ -102,8 +102,21 @@ remote repositoryのcopyをlocalに作る.(= ダウンロード)
 remote repository(のタグとcommit)を同期する
 
 <div align="center">
-<img src="./fig/fetch.gif" width="750px">
+<img src="./fig/fetch.svg" width="750px">
 </div>
+
+## git fetch
+
+このままではremoteのmaster(origin/master)がlocalのmasterに反映されていないので,masterをorigin/masterにmergeする.
+
+```{sh, eval=F}
+git merge origin master
+```
+
+<div align="center">
+<img src="./fig/merge_after_fetch.svg" width="750px">
+</div>
+
 
 ## git pull
 
@@ -112,8 +125,12 @@ remote repository(のタグとcommit)を同期する
 `git fetch` と `git merge origin/master` をまとめてやる(`--rebase`つけると`git rebase origin/master`になる)
 
 <div align="center">
-<img src="./fig/pull.gif" width="700px">
+<img src="./fig/pull.svg" width="700px">
 </div>
+
+Mergeの作業が入っているため,pullではConflictが発生する可能性がある.
+
+PRという名前はGithubのPRのMergeにpull(fetch+merge)コマンドが含まれることに由来する
 
 ## git push
 
@@ -122,19 +139,62 @@ remote repository(のタグとcommit)を同期する
 remoteの`<branch>`タグをlocalの`<branch>`タグの位置に同期させる(Conflictする場合はpushできない).
 
 <div align="center">
-<img src="./fig/push.gif" width="750px">
+<img src="./fig/push.svg" width="750px">
 </div>
 
 ---
 
-Tips: remote側で起こる動作は,`<origin>`/`<branch>`に`checkout`して
+Tips: git pushはgit pullのremoteとlocalを入れ替えたもの
 
-`git merge --ff-only <branch>`
+つまり,**remote**から**local**を
+
+`git pull --ff-only <branch>`
 
 したときに起こる動作と同じと考えることができる.
 
 `--ff-only`勉強しといてよかったね!!!?
 
+
+## git pushできないとき 
+
+--ff-only オプションのせいでConflictするとpushはできない
+
+この場合の解決方法:
+
+- -f(force) オプションを使う
+    - 強制的にremoteを上書きする(危険)
+		- ミスるとremoteからすべての歴史を吹き飛ばすので注意してやること(頭真っ白になる)
+		- とはいえrebaseやamendすると-f使う以外にpushする方法はなくなるので避けることはできない
+		- このオプションを使ってよいのは,最悪吹き飛ばしてもなんとかなるfeature branchのみ
+- --force-with-leaseを使う
+    - ローカルが最新の場合のみ強制的にremoteを上書きする
+- pullしてConflictを解消する 
+    - 自分の実行したrebaseやamend以外の原因(remoteが他の誰かの手によって更新されたことによるConflict)の場合,pullしてConflictを解消することで解決する(pullはconflictが起こっても実行できるため)
+
+## git fetch VS git pull
+
+- 他のbranchにcheckoutせずにremoteのCommitを取り込みたい場合fetch
+- それ以外の場合pull
+
+最新のmasterにfeatureをrebaseしたい場合の例
+
+```{sh, eval=F}
+# pull version (HEAD -> feature)
+git checkout master
+git pull origin master
+git checkout feature
+git rebase master
+```
+
+```{sh, eval=F}
+# fetch version (HEAD -> feature)
+git fetch origin 
+git rebase origin/master 
+```
+
+は?
+
+特に,HEADに未commitのfileがあるときにこれをやりたくなるとpullでは非常に面倒(stashを使えばいいのだが更に2コマンド増える)
 
 ## Git Flow
 
