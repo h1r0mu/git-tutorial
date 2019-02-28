@@ -13,7 +13,7 @@
 修正箇所にハイライト(OR 取り消し線)を引いてコメントを書ける.
 
 <div align="center">
-<img src="./fig/adobe.png" width="650px">
+<img src="./fig/adobe.png" width="750px">
 </div>
 
 
@@ -62,5 +62,8 @@ Git使おう.
 ## git pushでやらかして頭が真っ白になった話 
 
 [git pushでやらかして頭が真っ白になった話](https://helen.hatenablog.com/entry/2015/11/03/001910)
+<div align="center">
+<img src="./fig/white.png" width="750px">
+</div>
 
 ちゃんと勉強してから使おう.
