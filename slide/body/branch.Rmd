@@ -173,12 +173,22 @@ git log --oneline --graph --all
 
 `git merge [<branch>]`
 
+## git mergeの使い時
+
+- 他のbranchの変更を取り込みたい
+- branchをmasterに取り込んで削除したい 
+- PRがconflictしている.
+- rebaseすると玉突き事故(conflictまつり)が起きそう
 
 ## git merge 
 
-GithubでPull requestをmergeするときはこんな感じのことをしている.
+MergeといえばPR.
 
+GithubでPRをmergeするときはこんな感じのことをしている.
+
+<div align="center">
 <img src="./fig/merge.png" width="550px">
+</div>
 
 --- 
 
@@ -456,6 +466,23 @@ Mergeより戻すのが面倒(reflog使わないかん)ですね.
 
 <iframe src="https://www.slideshare.net/slideshow/embed_code/key/us6QLyLgaRMCyy?startSlide=100" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/kotas/git-15276118" title="こわくない Git" target="_blank">こわくない Git</a> </strong> from <strong><a href="https://www.slideshare.net/kotas" target="_blank">Kota Saito</a></strong> </div>
 
+## 歴史改変のrebaseとbranchのrebase
+
+<div class="column-left">
+<div align="center">
+<img src="./fig/rebase_single.svg" width="300px">
+</div>
+</div>
+<div class="column-right">
+<div align="center">
+<img src="./fig/rebase_multi.svg" width="500px">
+</div>
+</div>
+
+歴史改変のrebase(左)とbranchのrebase(右)
+
+やっていることは同じ.
+
 ## git cherry-pick 
 
 `git cherry-pick <commit>...`
@@ -517,6 +544,14 @@ ROW001
 1. `git checkout [--theirs|--ours] <paths>` を使う
 1. merge-toolを使う 
 
+## 1. ConfilitしたファイルをEditerで編集する
+
+そのまんま. Vimとかでひらいて↓こんな感じに編集して保存,AddしてCommit
+
+```{txt, eval=F}
+ROW000
+ROW002 <- update_file000 
+```
 
 ## 2. checkoutを使う方法 
 
@@ -534,6 +569,10 @@ ROW001
 ```
 
 merge元のbranch(=--theirs)の変更かmerge先(=HEAD, --ours)の変更かのどちらかを採用する.
+
+**利点**: pdfや画像などテキストとして編集できないものがConflictしたときに便利
+
+PDFをVimで開いて「この行はmerge先を採用して,こっちはbranchを採用...」とかやってるやつがいたら病気...
 
 **欠点**: どういう結果になるか予想がつきにくい. 
 
