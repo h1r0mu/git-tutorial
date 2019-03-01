@@ -45,6 +45,8 @@ Commit (directoryのスナップショット)からなるツリー.
 ```{sh, eval=F}
 # 準備
 cd path/to/workspace
+mkdir repo005
+cd repo005
 git init
 echo "ROW000" > file000
 git add file000 
@@ -468,6 +470,9 @@ Mergeより戻すのが面倒(reflog使わないかん)ですね.
 
 ## 歴史改変のrebaseとbranchのrebase
 
+歴史改変のrebase(左)とbranchのrebase(右)
+やっていることは同じ.
+
 <div class="column-left">
 <div align="center">
 <img src="./fig/rebase_single.svg" width="300px">
@@ -478,10 +483,6 @@ Mergeより戻すのが面倒(reflog使わないかん)ですね.
 <img src="./fig/rebase_multi.svg" width="500px">
 </div>
 </div>
-
-歴史改変のrebase(左)とbranchのrebase(右)
-
-やっていることは同じ.
 
 ## git cherry-pick 
 
