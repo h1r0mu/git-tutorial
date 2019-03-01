@@ -13,6 +13,8 @@
 ```{sh, eval=F}
 cd path/to/workspace
 mkdir repo002
+cd repo002
+git init
 echo "ROW000" > file000
 git add file000 
 git commit -m "Added file000."

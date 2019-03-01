@@ -9,6 +9,7 @@
 # 準備
 cd path/to/workspace
 mkdir repo003
+git init
 echo "ROW000" > file000
 cp file000 file001
 git add file000
@@ -32,16 +33,19 @@ git commit --amend -m "Added file000 and file001."
 
 ```{sh, eval=F}
 # 準備
+rm -rf * 
+echo "ROW000" > file000
+git commit -a -m "Added file000."
 for f in file001 file002 file003 gomi; do cp file000 $f; done 
 # file001, file002, file003, gomiができれば何でも良い
 git add file001
-git commit -m "Added file001."
+git commit -m 'Added file001.'
 git add file002
-git commit -m "Added file002."
+git commit -m 'Added file002.'
 git add file003
-git commit -m "「もしかして:再帰」をクリックすると「もしかして:再帰」が表示される"
+git commit -m '「もしかして:再帰」をクリックすると「もしかして:再帰」が表示される'
 git add gomi 
-git commit -m "Added gomi."
+git commit -m 'Added gomi.'
 ```
 
 --- 
