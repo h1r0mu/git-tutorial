@@ -134,7 +134,7 @@ Commit (directoryのスナップショット)からなるツリー(一番重要)
 - たくさんのスナップショット(バックアップ)を効率的に管理する方法と考えれば良い.
 - CommitはdirectoryのスナップショットにIDとしてhash値を振ったもの.
 - Commitには親となるCommitが記録されている (= ツリー構造)
-- Hash値だけで管理すると人間が覚えられなくなってしまうのでHEADとかmasterみたいなタグを使う
+- Hash値だけで管理すると人間が覚えられなくなってしまうのでHEADとかmasterみたいなタグ(refs)を使う
 - master, HEAD, branchなどは特定のCommitを指しているTag (Pointer)の名前(**重要**)
 - 1度作ったcommitは基本的になくならない(探せなくはなるので注意) 
 
@@ -145,7 +145,7 @@ Commit (directoryのスナップショット)からなるツリー(一番重要)
 
 --- 
 
-### タグのイメージ
+### refsのイメージ
 
 <div align="center">
 <img src="https://pbs.twimg.com/media/CpvqRmiUAAAPlLm.jpg" width="650px">
