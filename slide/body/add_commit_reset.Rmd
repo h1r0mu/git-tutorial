@@ -32,7 +32,7 @@ git status
 
 ## git init 
 
-カレントディレクトリをgit repositoryにする
+current directoryにgit repositoryを作る
 
 ```{sh, eval=F}
 git init 
@@ -40,7 +40,8 @@ git init
 
 ## git initをなかったことにする
 
-カレントディレクトリからgit direcoryを削除する
+current directoryからgit repositoryを削除する
+! 削除したrepositoryは元に戻せないので注意 
 
 ```{sh, eval=F}
 rm -R .git
