@@ -89,7 +89,7 @@ https://stackshare.io/stackups/bitbucket-vs-github-vs-gitlab
 
 ## git clone
 
-remote repositoryのcopyをlocalに作る.(= ダウンロード)
+remote repositoryのcopyをlocalに作る.(= Download)
 
 `git clone <repository>`
 
@@ -97,9 +97,13 @@ remote repositoryのcopyをlocalに作る.(= ダウンロード)
 <img src="./fig/clone.svg" width="750px">
 </div>
 
+最初の一回しか使わない(あとはpullやfetch).
+
 ## git fetch
 
-remote repository(のタグとcommit)を同期する
+現在のremoteの`<branch>` refsの位置に合わせてlocalの`origin/<branch>` refsの位置を更新する.
+
+`git fetch <remote> <branch>`
 
 <div align="center">
 <img src="./fig/fetch.svg" width="750px">
@@ -110,7 +114,7 @@ remote repository(のタグとcommit)を同期する
 このままではremoteのmaster(origin/master)がlocalのmasterに反映されていないので,masterをorigin/masterにmergeする.
 
 ```{sh, eval=F}
-git merge origin master
+git merge origin/master
 ```
 
 <div align="center">
@@ -119,6 +123,8 @@ git merge origin master
 
 
 ## git pull
+
+remote branchの変更をlocalのbranchに取り込む (Downloadに近い)
 
 `git pull [--rebase|--no-ff] <remote> <branch>`
 
@@ -134,42 +140,34 @@ PRという名前はGithubのPRのMergeにpull(fetch+merge)コマンドが含ま
 
 ## git push
 
+local branchの変更をremote branchに反映させる (Uploadに近い)
+
 `git push <remote> <branch>`
 
-remoteの`<branch>`タグをlocalの`<branch>`タグの位置に同期させる(Conflictする場合はpushできない).
+git pullのremoteとlocalを逆にしたもの(pullと違いConflictする場合は実行できない= --ff-only).
 
 <div align="center">
 <img src="./fig/push.svg" width="750px">
 </div>
 
----
-
-Tips: git pushはgit pullのremoteとlocalを入れ替えたもの
-
-つまり,**remote**から**local**を
-
-`git pull --ff-only <branch>`
-
-したときに起こる動作と同じと考えることができる.
-
-`--ff-only`勉強しといてよかったね!!!?
-
 
 ## git pushできないとき 
 
---ff-only オプションのせいでConflictするとpushはできない
+何れかの原因でConflictする場合,pushはできないので適切な方法で対処する
 
-この場合の解決方法:
+### 自分に原因がある場合
+- 原因となる作業: rebase, commit --amend, resetなどremoteとconflictする作業をした
+- 対処法: `git push -f <remote> <branch>`, `git push --force-with-lease <remote> <branch>` で強制pushする
 
-- -f(force) オプションを使う
-    - 強制的にremoteを上書きする(危険)
-		- ミスるとremoteからすべての歴史を吹き飛ばすので注意してやること(頭真っ白になる)
-		- とはいえrebaseやamendすると-f使う以外にpushする方法はなくなるので避けることはできない
-		- このオプションを使ってよいのは,最悪吹き飛ばしてもなんとかなるfeature branchのみ
-- --force-with-leaseを使う
-    - ローカルが最新の場合のみ強制的にremoteを上書きする
-- pullしてConflictを解消する 
-    - 自分の実行したrebaseやamend以外の原因(remoteが他の誰かの手によって更新されたことによるConflict)の場合,pullしてConflictを解消することで解決する(pullはconflictが起こっても実行できるため)
+`git push -f` は強制的にremoteを上書きするので,ミスると**remoteからすべての歴史を吹き飛ばす**ので(頭真っ白になる),
+吹き飛ばしても人に迷惑のかからないfeature branchのみで使うこと.
+
+`--force-with-lease` オプションはローカルのrefsがremoteと一致している場合のみ(i.e., localが最新の場合)強制的にremoteを上書きするのでやや安全
+
+### 他人に原因がある場合
+- 原因となる作業: 同じbranchに他のCollaboratorがpushした
+- 対処法: `git pull <remote> <branch>` してConflictを解消してからpushする  (pullはconflictが起こっても実行できるため)
+
 
 ## git fetch VS git pull
 
