@@ -62,7 +62,11 @@ font-size: 14px;
 # Taboo and recommended actions
 
 ```{r child="./body/taboo_and_recommend.Rmd"}
+```
 
+# Conclusion
+
+```{r child="./body/conclusion.Rmd"}
 ```
 
 # Exercise
