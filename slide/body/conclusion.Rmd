@@ -1,0 +1,6 @@
+## Conflictが起こる可能性のあるcommands
+
+- merge
+- rebase
+- pull (commandの一部にmergeを含むため)
+- push (--ff-onlyなのでConflictが起こるとコマンドは失敗する)

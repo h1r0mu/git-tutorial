@@ -59,6 +59,11 @@ output:
 
 ```
 
+# Conclusion
+
+```{r child="./body/conclusion.Rmd"}
+```
+
 # Exercise
 
 ```{r child="./body/exercise.Rmd"}
