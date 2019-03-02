@@ -225,4 +225,4 @@ git reset HEAD@{1} # HEAD@{1} = 1つ前にHEADの指していたcommit
 
 つまり?
 
-`git reset --hard` するときは気をつけよう.
+`git reset --hard, git checkout <file>` (上表で太字の**いいえ**になっているやつ) するときは気をつけよう.
