@@ -64,12 +64,6 @@ echo "ROW000" > file000
 git add file000
 ```
 
-
---- 
-
-<div align="center">
-<img src="https://git-scm.com/book/en/v2/images/reset-ex2.png" width="650px">
-</div>
 ## git addをなかったことにする 
 
 - 新規ファイルの場合
@@ -104,13 +98,6 @@ git add file000
 ```{sh, eval=F}
 git commit -m "Added file000."
 ```
-
-
----
-
-<div align="center">
-<img src="https://git-scm.com/book/en/v2/images/reset-ex3.png" width="650px">
-</div>
 
 ## git commitをなかったことにする
 
