@@ -60,7 +60,7 @@ git commit -m "Added file000."
 git branch feature/update_file000 master
 ```
 
-feature/branch000という名前のタグを作る(指す先はmasterの指しているところ)
+feature/branch000という名前のrefを作る(指す先はmasterの指しているところ)
 
 ## git branchをなかったことにする
 
