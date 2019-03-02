@@ -48,32 +48,21 @@ font-size: 14px;
 ```{r child="./body/basic.Rmd"}
 ```
 
-```{r child="./body/add_commit_reset.Rmd"}
+```{r child="./body/single_branch.Rmd"}
 ```
 
-```{r child="./body/rm_mv.Rmd"}
-```
-
-```{r child="./body/commit-amend_rebase.Rmd"}
-```
-
-```{r child="./body/branch.Rmd"}
+```{r child="./body/multi_branches.Rmd"}
 ```
 
 # Github
 
-```{r child="./body/github.Rmd"}
+```{r child="./body/remote_branch.Rmd"}
 ```
 
 # Taboo and recommended actions
 
 ```{r child="./body/taboo_and_recommend.Rmd"}
 
-```
-
-# Conclusion
-
-```{r child="./body/conclusion.Rmd"}
 ```
 
 # Exercise
