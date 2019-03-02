@@ -62,16 +62,21 @@ git branch feature/update_file000 master
 
 feature/branch000という名前のタグを作る(指す先はmasterの指しているところ)
 
-## git branchをなかったことにする(branchを削除する)
+## git branchをなかったことにする
+
+branchを削除する.
 
 ```{sh, eval=F}
 git branch -d feature/update_file000
 ```
 
-強制的に削除する場合
+未mergeのbranchは削除しようとするエラーが出る(二度と見つけられなくなるため)ので強制削除する必要がある.
+
+強制的に削除する場合.
 ```{sh, eval=F}
 git branch -D feature/update_file000
 ```
+
 
 ## branchの削除をなかったことにする 
 
