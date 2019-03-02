@@ -261,3 +261,56 @@ featureとmasterしかないシンプルなFlow.
 
 1つの研究の原稿は同じRepositoryで管理し,研究会->国際会議->修論などのようにVersionアップするたびにreleaseしていくといいんじゃない?
 
+## Gitlabの基本操作
+
+<div align="center">
+<img src="./fig/github_top.png" height="500px">
+</div>
+
+## Issue 
+
+<div align="center">
+<img src="./fig/issue_top.png" height="500px">
+</div>
+
+## Issueを起てる 
+
+<div align="center">
+<img src="./fig/issue_opened.png" height="500px">
+</div>
+
+## PRを送る
+
+<div align="center">
+<img src="./fig/pr_top.png" height="500px">
+</div>
+
+## PRを送る2 
+
+<div align="center">
+<img src="./fig/pr_creating.png" height="500px">
+</div>
+
+## PRをreviewする
+
+<div align="center">
+<img src="./fig/pr_review_top.png" height="500px">
+</div>
+
+## PRをreviewする2
+
+<div align="center">
+<img src="./fig/pr_reviewing.png" height="500px">
+</div>
+
+## PRをreviewする3
+
+<div align="center">
+<img src="./fig/pr_review_result.png" height="500px">
+</div>
+
+## PRをreviewする4
+
+<div align="center">
+<img src="./fig/pr_merged.png" height="500px">
+</div>
