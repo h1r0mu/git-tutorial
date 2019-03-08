@@ -4,5 +4,5 @@
 
 ```{sh}
 $ git clone https://github.com/h1r0mu/git-tutorial.git
-$ open git-tutorial/slide/git-tutorial.html
+$ open git-tutorial/slide/git_tutorial.html
 ```
