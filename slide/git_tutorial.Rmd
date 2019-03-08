@@ -3,12 +3,8 @@ title: "Git tutorial"
 author: Hiromu Asahina 
 date: Febrary 2019 
 output: 
-  ioslides_presentation:
-    slide_level: 2
-    widescreen: true
-    smaller: true
-    toc: true
-    number_sections: true
+  revealjs::revealjs_presentation:
+    theme: white 
 ---
 <style type="text/css">
 .column-left{
@@ -33,8 +29,11 @@ output:
 .right{
     width: 30%;
 }
+.reveal {
+font-size: 18px;
+}
 pre { 
-font-size: 14px;
+font-size: 18px;
 }
 </style>
 

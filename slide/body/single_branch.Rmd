@@ -1,5 +1,19 @@
 
-# add, commit, reset 
+# Single branch 1 (add, commit, reset)
+
+## まえおき
+
+ここから先の作業はSource treeのHistory(履歴)画面でCommit treeを表示しながらやることをオススメします.
+
+## この章で学べること 
+
+- Working directoryにおけるfileの追加や変更を記録したCommitを作る方法
+- Commitに含めるファイルを選ぶ方法
+- これらをなかったことにする方法 
+
+## 学んだことからできること 
+
+- Directoryの変更履歴を管理する(≒gitでdirectoryのbackupを取る)
 
 ## git status 
 
@@ -7,12 +21,6 @@
 
 File statusが4つのどの状態にあるかの確認.
  
-```{sh, eval=F}
-# 準備
-cd path/to/workspace
-mkdir repo000
-cd repo000
-```
 
 ```{sh, eval=F}
 git status 
@@ -34,14 +42,35 @@ git status
 
 current directoryにgit repositoryを作る
 
+---
+
+### やってみる 
+
+```{sh, eval=F}
+# 準備 
+cd path/to/workspace
+mkdir repo000
+cd repo000
+```
+
+---
+
+### やってみる 
+
 ```{sh, eval=F}
 git init 
+git status # どうなったか見てみる
 ```
+
+`ls -a` すると`.git` という隠しdirectoryが作られているはず.
+
+これがgit repositoryであり,すべての変更履歴の情報はここに記録されていく(もっとも,直接見てわかるような形にはなっていない).
 
 ## git initをなかったことにする
 
 current directoryからgit repositoryを削除する
-! 削除したrepositoryは元に戻せないので注意 
+
+❗削除したrepositoryは元に戻せないので注意
 
 ```{sh, eval=F}
 rm -R .git
@@ -49,7 +78,7 @@ rm -R .git
 
 ## git add 
 
-ファイルをStaged areaに追加する.
+fileをStaging areaに追加する.
 
 - 新規ファイルの場合
     - tracked(gitの追跡対象指定)にする
@@ -59,8 +88,12 @@ rm -R .git
 
 `git add [path ...]`
 
+--- 
+
+### やってみる
+
 ```{sh, eval=F}
-echo "ROW000" > file000
+echo "ROW000" > file000 # 準備
 git add file000
 ```
 
@@ -74,6 +107,10 @@ git add file000
 
 `git reset [--soft | --hard] [<commit>] [path ...]`
 
+---
+
+### やってみる 
+
 ```{sh, eval=F}
 git reset HEAD file000
 ```
@@ -84,9 +121,23 @@ stage(git add)されたすべてのファイルを対象にしたい場合
 git reset HEAD
 ```
 
+---
+
+### HEADについて
+
+HEADは現在参照しているCommitを指すrefs(看板)
+
+- HEADが指しているCommitとことなるfileはmodified状態になる
+- HEADの指すCommitを変える=Working direcotryのfileをHEADの指すCommitに記録されているものに置き換える
+- HEAD^ = HEADの1つ前のCommit
+
 ## git commit 
 
-staged(git add)されたすべてのファイルのコピーをGit Directoryへ記録する
+stage (git add)されたすべてのfileの現在の状態をGit Directoryへ記録する
+
+---
+
+### やってみる
 
 ```{sh, eval=F}
 # 準備
@@ -103,12 +154,20 @@ git commit -m "Added file000."
 
 Git Directoryから最後のCommitを削除する
 
+--- 
+
+### やってみる
+
 ```{sh, eval=F}
 # 準備
 cp file000 file001
 git add file001
 git commit -m "Added file001."
 ```
+
+---
+
+### やってみる
 
 ```{sh, eval=F}
 git reset --soft HEAD^ # HEAD^ = 1つ前の親Commit
@@ -129,6 +188,16 @@ git reset HEAD^
 
 ## git commitをなかったことにしたのをなかったことに
 
+復習: *1度作ったcommitは基本的になくならない(探せなくはなるので注意)*
+
+さっきなかったことにしたcommitは実は消えていない(みえなくなっただけ).
+
+見えなくなったcommitを探すcommand = reflogを使う
+
+---
+
+### やってみる
+
 ```{sh, eval=F}
 $ git reflog
 e170b24 (HEAD -> master) HEAD@{0}: reset: moving to HEAD^
@@ -141,6 +210,12 @@ git reset HEAD@{1} # HEAD@{1} = 1つ前にHEADの指していたcommit
 ```
 
 ## git reset 
+
+既に何度か使っている`git reset` これの役割は?
+
+---
+
+💡  偉い人に聞きましょう(54ページくらいまで読み進めてください)
 
 <iframe src="https://www.slideshare.net/slideshow/embed_code/key/3BCgttHAboVzqg?startSlide=30" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/TomohikoHimura/git-22237343" title="やりなおせる Git 入門" target="_blank">やりなおせる Git 入門</a> </strong> from <strong><a href="https://www.slideshare.net/TomohikoHimura" target="_blank">Tomohiko Himura</a></strong> </div>
 
@@ -228,20 +303,30 @@ git reset HEAD@{1} # HEAD@{1} = 1つ前にHEADの指していたcommit
 `git reset --hard, git checkout <file>` (上表で太字の**いいえ**になっているやつ) するときは気をつけよう.
 
 
-# rm, mv 
+# Single branch 2 (rm, mv)
+
+## この章で学べること 
+
+- fileの削除や移動をgit repositoryへ記録する方法 
+- 特定のfileをcommitに含めなくする方法 
 
 ## git rm --cached
 
-ファイルをStaged areaとGit directoryから削除する
+fileをStaged areaとGit directoryから削除する
 
 (=untracked(gitの追跡対象外)にする)
 
 
 `git rm [--cached] [path ...]`
 
+---
+
+### やってみる
+
 ```{sh, eval=F}
-cd path/to/workspace
-mkdir repo002
+# 準備: 新しいgit repositoryを作る
+cd path/to/workspace 
+mkdir repo002 
 cd repo002
 git init
 echo "ROW000" > file000
@@ -249,15 +334,15 @@ git add file000
 git commit -m "Added file000."
 ```
 
-```{sh, eval=F}
-# 復習
-git add file000 # tracked(gitの追跡対象指定)にする
-```
+---
 
 ```{sh, eval=F}
 git rm --cached file000
+git status # file000がgit repositoryから削除された
+ls # Working directoryにはfile000が残っている
 ```
 
+実際のfileは削除せずにgitからfile000を削除(追跡対象外に)できた!
 
 ## .gitignore
 
@@ -276,11 +361,16 @@ git rm --cached file000
 
 ファイルをWorking Directory, Staged area, Git directoryのすべてから削除する.
 
+---
+
+### やってみる
 
 ```{sh, eval=F}
 # 準備  
-git add file000
+git add file000 # さっき削除したファイルを再び追加する
 ```
+
+--- 
 
 ```{sh, eval=F}
 rm file000
@@ -288,12 +378,7 @@ git add file000 # git rm --cached file000でも良い
 git commit -m "Removed file000."
 ```
 
-上の2つをまとめてやる
-
-```{sh, eval=F}
-# 準備  
-git reset --hard HEAD^ # HEAD^ = 1つ前の親Commit
-```
+上の2つをまとめてやることもできる
 
 ```{sh, eval=F}
 git rm file000
@@ -319,17 +404,36 @@ git mv file000 file001
 git commit -m "Renamed file000 to file001."
 ```
 
+## これらをなかったことにする方法
 
-# commit --amend, rebase 
+commitをなかったことにするのと同じ
+
+# Single branch 3 (commit --amend, rebase)
+
+## この章で学べること 
+
+- 作成済みのcommitを改変する方法
+- 改変をなかったことにする方法 
+
+
+## 学んだことからできること 
+
+- gitに記録されているcommit(変更の歴史)を自由に改変する (≒single branchならなにをするのも怖くなくなる) 
 
 ## git commit --amend
 
 最後のCommitを変更する
 
+ファイルをaddし忘れたときとか,コメントを修正したい時とかに便利
+
+---
+
+### やってみる
+
 ```{sh, eval=F}
 # 準備
 cd path/to/workspace
-mkdir repo003
+mkdir repo003 # 新しいgit repositoryを作る
 git init
 echo "ROW000" > file000
 cp file000 file001
@@ -337,11 +441,37 @@ git add file000
 git commit -m "Added file000."
 ```
 
-ファイルをaddし忘れたときとか,コメントを修正したい時とかに便利
+---
 
 ```{sh, eval=F}
 git add file001 
 git commit --amend -m "Added file000 and file001."
+```
+
+## git commit --amendをなかったことにする
+
+復習: *1度作ったcommitは基本的になくならない(探せなくはなるので注意)*
+
+amendは,一見直前のCommitを改変したように見えるが,実は新しくCommitを作って元々のCommitを見えなくしただけ.
+
+そのため,見えなくなったcommitを探すcommand = reflogでamend前のCommitを復元することができる.
+
+---
+
+## やってみる
+
+```{sh, eval=F}
+$ git reflog
+0cb7577 (HEAD -> master) HEAD@{0}: commit (amend): Added file000 and file001.
+8dcd8b5 HEAD@{1}: commit (initial): Added file000. # <- amend前のCommit
+```
+
+---
+
+HEADの指す位置をamend前のCommitに変える.
+
+```{sh, eval=F}
+git reset --hard HEAD@{1}
 ```
 
 ## git rebase 
@@ -352,11 +482,12 @@ git commit --amend -m "Added file000 and file001."
 
 `<commit>`から`HEAD`までのコミットをまとめて変更する
 
+---
+
+### やってみる
+
 ```{sh, eval=F}
 # 準備
-rm -rf * 
-echo "ROW000" > file000
-git commit -a -m "Added file000."
 for f in file001 file002 file003 gomi; do cp file000 $f; done 
 # file001, file002, file003, gomiができれば何でも良い
 git add file001
@@ -599,16 +730,22 @@ git rebase --continue
 
 ## git rebaseをなかったことにする 
 
-rebaseの途中でやっぱりやめたくなった
+rebaseの途中でやっぱりやめたくなった場合
 ```{sh, eval=F}
 git rebase --abort
 ```
+
+rebaseを発動する前の状態に戻ることができる.
+
+rebase対象が多すぎて途中でわけわからなくなったら,素直に--abortして最初からやり直そう.
 
 ## git rebaseをなかったことにする 
 
 rebaseしたあと,やっぱりなかったことにしたくなった 
 
-rebaseは既存のcommitをコピーを作っているだけなので,元のcommitも残っている(見えなくなっているだけ).
+commit --amendと一緒で,rebaseは既存のcommitをコピーを作っているだけ
+
+なので,元のcommitも残っている(見えなくなっているだけ).
 
 ```{sh, eval=F}
 * 99d7024 (master) Added file003
@@ -621,7 +758,9 @@ rebaseは既存のcommitをコピーを作っているだけなので,元のcomm
 * 2312317 Added file000.
 ```
 
-## git rebaseをなかったことにする 
+---
+
+### やってみる
 
 見えないcommitをたどるにはreflog.
 
@@ -642,6 +781,14 @@ git reset --hard HEAD@{5} # HEAD@{5} = 5つ前にHEADの指していたcommit
 
 ## git rebaseをなかったことにしたのをなかったことにする 
 
+一度はrebaseをなかったことにしたんだけど,よくよく考えるとrebaseした後の方が良い気がしてきた...(よく考えて**から**行動しましょう!)
+
+同じ理屈でなかったことにしたのをなかったことにできる
+
+---
+
+### やってみる
+
 ```{sh, eval=F}
 $ git reflog
 92b7c29 (HEAD -> master) HEAD@{0}: reset: moving to HEAD@{5} # <-- さっきのreset
@@ -652,6 +799,7 @@ ecc3571 HEAD@{3}: rebase -i (edit): 「もしかして:再帰」をクリック�
 408797f HEAD@{5}: rebase -i (start): checkout HEAD~4
 92b7c29 HEAD@{6}: commit: Added gomi. 
 ...
+
 ```
 
 ```{sh, eval=F}
@@ -663,3 +811,6 @@ git reset --hard HEAD@{1}
 - 指定したcommitを分岐点として改変された歴史作る
 - 途中でわけわかんなくなったら--abort 
 
+なんでもかんでもなかったことにできるようになった!
+
+もう何も怖くない.
