@@ -3,12 +3,8 @@ title: "Git tutorial"
 author: Hiromu Asahina 
 date: Febrary 2019 
 output: 
-  ioslides_presentation:
-    slide_level: 2
-    widescreen: true
-    smaller: true
-    toc: true
-    number_sections: true
+  revealjs::revealjs_presentation:
+    theme: white 
 ---
 <style type="text/css">
 .column-left{
@@ -33,61 +29,54 @@ output:
 .right{
     width: 30%;
 }
+.reveal {
+font-size: 18px;
+}
 pre { 
-font-size: 14px;
+font-size: 18px;
 }
 </style>
 
-# Adobe readerをやめてGit+Githubにしたら捗った話
-
-```{r child="./body/introduction.Rmd"}
-```
-
 # Git
 
-```{r child="./body/basic.Rmd"}
+```{r child="./body/git.md"}
 ```
 
-```{r child="./body/single_branch.Rmd"}
+```{r child="./body/single_branch.md"}
 ```
 
-```{r child="./body/multi_branches.Rmd"}
+```{r child="./body/multi_branches.md"}
 ```
 
 # Github
 
-```{r child="./body/remote_branch.Rmd"}
+```{r child="./body/github.md"}
+```
+
+```{r child="./body/remote_branch.md"}
+```
+
+# Branching model 
+
+```{r child="./body/branching_model.md"}
 ```
 
 # Taboo and recommended actions
 
-```{r child="./body/taboo_and_recommend.Rmd"}
-```
-
-# Conclusion
-
-```{r child="./body/conclusion.Rmd"}
+```{r child="./body/taboo_and_recommend.md"}
 ```
 
 # Exercise
 
-```{r child="./body/exercise.Rmd"}
+```{r child="./body/exercise.md"}
 ```
 
 # Advanced
 
-```{r child="./body/n_knock.Rmd"}
+```{r child="./body/n_knock.md"}
 ```
 
 # References 
 
-```{r child="./body/reference.Rmd"}
+```{r child="./body/reference.md"}
 ```
-
-
-
-/* # 最初のコミット */
-
-/* # ブロックチェーンとGit */
-
-/* # Gitの名前の由来 */
