@@ -1,5 +1,7 @@
 ## Gitでやってはいけないこと 
 
+---
+
 ### sizeのでかいファイルをcommitに含める
 
 cloneするのにすごく時間がかかるようになります.
@@ -8,9 +10,14 @@ cloneするのにすごく時間がかかるようになります.
 
 Tips: [Git LFS](https://git-lfs.github.com/) という大容量バイナリファイルを扱う方法も提供されている
 
+---
+
 ### developやmasterでrebaseする
 
 feature**で**developやmaster**を**rebaseするのはおk
+
+
+---
 
 ### developやmasterで`git push -f`する
 
@@ -22,18 +29,23 @@ Githubでは,push -fできないようにbranchをprotectすることも可
 
 ## Gitで積極的にやるべきこと 
 
+---
+
 ### 即Issueを起てる,即Branchを切る 
 
 何かしようと思ったらとりあえずIssue起てる.
+
+
+---
 
 ### Commit messageにIssue番号を含める
 
 `Added some files. #1` のようにすると1番のIssueのページから当該のCommitが見れるようになりトラッキングが楽.
 
-### 労う
-
 
 ---
+
+### 労う
 
 よいPRには,LGTM (Looks Good To Me) を送りましょう.
 

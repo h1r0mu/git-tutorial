@@ -5,6 +5,8 @@
 
 ここから先の作業はSource treeのHistory(履歴)画面でCommit treeを表示しながらやることをオススメします.
 
+まずは,versionが分岐しない場合,ただの便利なbackup toolとしてgitを扱う方法を体験しましょう.
+
 ## この章で学べること 
 
 - Working directoryにおけるfileの追加や変更を記録したCommitを作る方法

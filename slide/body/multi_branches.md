@@ -1,16 +1,16 @@
 
 # Multi branches (branch, checkout, merge, rebase)
 
-## この章で学べること 
+## まえおき
 
-- 一つのversionから複数のversionへ分岐する方法
-- 分岐したversionを一つにまとめる方法 
-- これらをなかったことにする方法 
+次に,branchingによりversionが分岐**する**場合,作業環境の管理toolとしてgitを扱う方法を体験しましょう.
+
+gitのbranchingは,プログラミング言語における`**env`のように,仮想環境を作って実行環境を分離するのと似た効果をもたらします.
 
 ## 学んだことからできること 
 
 - 複数人で一つのProjectを変更する (Remoteとの連携がMust) 
-- 異なるTaskを並行して進める
+- Taskごとに作業環境を分離する
 
 ## git log 
 

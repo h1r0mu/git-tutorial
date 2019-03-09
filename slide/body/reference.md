@@ -19,3 +19,10 @@
 - Branchを視覚的に理解する役に立つ
 - Chromeだと表示がおかしくなる(Firefoxは平気だった)  
 - 英語(日本語もあるけどなんかバグってる) 
+
+
+---
+
+[やりなおせる Git 入門](https://www.slideshare.net/TomohikoHimura/git-22237343)
+
+[こわくない Git](https://www.slideshare.net/kotas/git-15276118)
