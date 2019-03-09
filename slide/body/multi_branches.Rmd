@@ -1,6 +1,16 @@
 
-# branch 
+# Multi branches (branch, checkout, merge, rebase)
 
+## この章で学べること 
+
+- 一つのversionから複数のversionへ分岐する方法
+- 分岐したversionを一つにまとめる方法 
+- これらをなかったことにする方法 
+
+## 学んだことからできること 
+
+- 複数人で一つのProjectを変更する (Remoteとの連携がMust) 
+- 異なるTaskを並行して進める
 
 ## git log 
 
@@ -9,6 +19,7 @@ Commit treeを表示する
 
  `git log --oneline --graph --all`
 
+---
 
 defaultの`git log`は見にくいので,いい感じで表示してくれる[wrapper](https://github.com/takaaki-kasai/git-foresta)もある.
 
@@ -24,28 +35,45 @@ f8c8773e 2019-02-19 10:31  │ ● ameono Added file001.
 2312317f 2019-02-19 10:30  ■ ameono Added file000.
 ```
 
+---
+
+logの表示だけでなくCommitとかを便利にできるWrapperもある
+
+[tig](https://github.com/jonas/tig)
 
 ---
 
 ### 思い出す 
 
-Commit (directoryのスナップショット)からなるツリー.
+保存されているCommit (=Version)の親子関係を表すtree (一番重要).
 
 - CommitはdirectoryのスナップショットにIDとしてhash値を振ったもの.
-- Commitには親となるCommitが記録されている (= ツリー構造)
-- master, HEAD, branchなどはCommitを指しているTag (Pointer)の名前
+- Commitには親となるCommitが記録されている (👉 tree構造)
 - 1度作ったcommitは基本的になくならない(探せなくはなるので注意) 
+- Hash値だけで管理すると人間が使うとき不便なのでHEADとかmasterみたいな看板(refs)を使う
+- master, HEAD, branchなどは特定のCommitを指しているrefsの名前(**重要**)
 
 <div align="center">
 <img src="https://git-scm.com/book/en/v2/images/advance-master.png" width="650px">
 </div>
 
+
+これからやる作業は基本的にrefsを作ったり移動したりする作業
+
 ## git branch
+
+<branch-name>という名前の新たなrefsを作り,<start-point>を指すようにする
+
+`git branch [-d|-D] <branch-name> [<start-point>]`
+
+---
+
+### やってみる
 
 ```{sh, eval=F}
 # 準備
 cd path/to/workspace
-mkdir repo005
+mkdir repo005 # 新しいGit repositoeryを作る
 cd repo005
 git init
 echo "ROW000" > file000
@@ -53,7 +81,7 @@ git add file000
 git commit -m "Added file000."
 ```
 
-`git branch [-d|-D] <branch-name> [<start-point>]`
+---
 
 
 ```{sh, eval=F}
@@ -97,6 +125,10 @@ HEADの指す先を<branch> OR <commit>に変える.
 `git checkout [-b] [<branch>|<commit>]`
 
 
+---
+
+### やってみる
+
 ```{sh, eval=F}
 git checkout feature/update_file000
 ```
@@ -110,6 +142,14 @@ git checkout -b feature/update_file000
 ```
 
 --- 
+
+### checkoutで起こること
+
+gitを使ったことのある人は,checkoutに他の枝(branch)に移るというイメージを持っているかもしれないが,実際にはHEADの指す先のrefsが変わるだけ.
+
+👉 e.g., masterもdevelopも同じCommitを指していたら,どちらにcheckoutしてもWorking directoryは変化しない. 同じCommitをmasterというrefs越しに見るかdevelopというrefs越しに見るかが違うだけ.
+
+---
 
 ```{sh, eval=F}
 git branch testing 
@@ -149,8 +189,14 @@ $ git log --graph --all
 ```
 HEAD -> の指す先に注目.
 
+---
+
+`<branch>`にcheckoutした状態でCommitすると`<branch>`refsの位置はHEADに連動して移動する.
+
 
 --- 
+
+### Commitしてみる 
 
 ```{sh, eval=F}
 echo "ROW001" >> file000
@@ -162,6 +208,10 @@ masterと違うCommitを指していることを確認
 ```{sh, eval=F}
 git log --oneline --graph --all
 ```
+
+---
+
+### branchを変えて再度commitしてみる 
 
 ```{sh, eval=F}
 git checkout master
@@ -176,22 +226,46 @@ git commit -m "Added file001."
 git log --oneline --graph --all
 ```
 
+---
+
+このようにしてTaskごとに作業環境を切り分けることができる.
+
+## 詳説 checkout
+
+厳密には,checkoutのやっていることは,ただHEADの指す先を変えるのとは少し違う.
+
+checkoutは特定のbranch(もちろんcommitでも良い)からfileをWorking directoryに取り出してくるcommandである.
+
+---
+
+```{sh, eval=F}
+git checkout <commit|branch> <path>
+```
+
+と書くことで,特定の`<branch>`(or `<commit>`)の`<path>`にあるfileを現在のWorking directoryに持ってくることができる.
+
+`<path>`を省略すると,その`<branch>`の全ファイルをWorking directoryに持ってくることになる.
+
+全部持ってきたらWorking directoryの中身は,その`<branch>`と全く同じになる.
+
+👉 HEADを移動したのと同じ.
+
+---
+
+このため,未commitのfileがあるとcheckoutは失敗する
+
+(まだcommitされていないfileがcheckout先のfileで上書きされてしまう!).
+
+
 ## git merge 
 
-他のbranchの先端と今のbranchの先端を統合するcommitを作る
+他のbranchと今いるbranchを統合するcommitを作る
 
 `git merge [<branch>]`
 
-## git mergeの使い時
-
-- 他のbranchの変更を取り込みたい
-- branchをmasterに取り込んで削除したい 
-- PRがconflictしている.
-- rebaseすると玉突き事故(conflictまつり)が起きそう
-
 ## git merge 
 
-MergeといえばPR.
+Githubを使うのであればこの作業はPRをMergeしたときに勝手にやってくれる.
 
 GithubでPRをmergeするときはこんな感じのことをしている.
 
@@ -200,6 +274,12 @@ GithubでPRをmergeするときはこんな感じのことをしている.
 </div>
 
 --- 
+
+PRのMergeで問題が起きたときに対処できるようになるために,GithubがPRをMergeするときの動作を自分でやってみる.
+
+---
+
+### やってみる
 
 ```{sh, eval=F}
 git checkout feature/update_file000
@@ -263,6 +343,11 @@ master tagとupdate_file000 tagをそれぞれMerge前の位置に戻せば良�
 
 (復習) HEAD^ = 1つ前の親Commit
 
+Merge commitは親が2ついる. どうやって指定すれば?
+
+
+---
+
 親が2つ以上ある場合 `HEAD^N (N=親の番号)` のように指定できる.
 
 ```{sh, eval=F}
@@ -294,6 +379,10 @@ Date:   Sat Feb 16 21:28:33 2019 +0900
 
     Added file000.
 ```
+
+---
+
+### HEADの表記法まとめ
 
 <img src="https://backlog.com/ja/git-tutorial/img/post/stepup/capture_stepup1_3_2.png" width="350px">
 
@@ -347,16 +436,18 @@ $ git log --oneline --graph --all
 ## git merge --no-ff について 
 
 ```{sh, eval=F}
-(復習)
+(復習 GithubのPR Merge)
 git checkout feature/update_file000
 git merge master 
 git checkout master
 git merge --no-ff feature/update_file000 <-- --no-ffに注目
 ```
 
-no-ff = No Fast Forward
+このoptionはなんぞや
 
-なしにしてやってみる
+---
+
+## なしにしてやってみる
 
 ```{sh, eval=F}
 git checkout feature/update_file000
@@ -375,26 +466,37 @@ $ git log --oneline --graph --all
 * e170b24 Added file000.
 ```
 
+2回MergeしたのにMerge commitが1つしかできていない.は?
+
 --- 
+
+💡  偉い人に聞きましょう(99ページくらいまで読み進めてください)
 
 <iframe src="https://www.slideshare.net/slideshow/embed_code/key/us6QLyLgaRMCyy?startSlide=40" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/kotas/git-15276118" title="こわくない Git" target="_blank">こわくない Git</a> </strong> from <strong><a href="https://www.slideshare.net/kotas" target="_blank">Kota Saito</a></strong> </div>
 
-
-
 ## git rebase 
+
+mergeと同じようなことをするcommandにrebaseがある.違いを見ましょう.
+
+他のbranchの先端に今のbranchの根本から先端までのcommitをまとめて移植する
 
 `git rebase [<branch>]`
 
 `git rebase --continue | --skip | --abort | --quit | `
 
-他のbranchの先端に今のbranchの根本から先端までのcommitをまとめて移植する
+
+---
+
+## やってみる
 
 ```{sh, eval=F}
 # 準備
-git branch -f feature/update_file000 HEAD^2
+git branch -f feature/update_file000 HEAD^2 # Mergeをなかったことに
 git reset --hard HEAD^
 git checkout feature/update_file000
 ```
+
+---
 
 ```{sh, eval=F}
 git rebase master
@@ -410,15 +512,26 @@ $ git log --oneline --graph --all
 --- 
 
 ```{sh, eval=F}
+$ git checkout master
 $ git rebase feature/update_file000
 First, rewinding head to replay your work on top of it...
 Fast-forwarded master to feature/update_file000.
+```
 
+```{sh, eval=F}
 $ git log --oneline --graph --all
 * a336ea3 (HEAD -> master, feature/update_file000) Added file001.
 * cf7cb13 Updated file000 (added the second row).
 * e170b24 Added file000.
 ```
+
+masterとfeatureは統合されたが,Merge commitが一個もできていない
+
+---
+
+**merge**: Merge Commitを作って2つのbranchを統合する
+
+**rebase**: 2つのbranchのどちらかをもう片方の先端に移植することで統合する
 
 ## git rebaseをなかったことにする 
 
@@ -470,8 +583,9 @@ Mergeより戻すのが面倒(reflog使わないかん)ですね.
 
 > この指針に従っている限り、すべてはうまく進みます。もしこれを守らなければ、あなたは嫌われ者となり、友人や家族からも軽蔑されることになるでしょう。(Pro Git)
 
+## 詳説 rebase
 
-## Merge VS rebase
+💡  偉い人に聞きましょう(181ページくらいまで読み進めてください)
 
 <iframe src="https://www.slideshare.net/slideshow/embed_code/key/us6QLyLgaRMCyy?startSlide=100" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/kotas/git-15276118" title="こわくない Git" target="_blank">こわくない Git</a> </strong> from <strong><a href="https://www.slideshare.net/kotas" target="_blank">Kota Saito</a></strong> </div>
 
@@ -493,9 +607,13 @@ Mergeより戻すのが面倒(reflog使わないかん)ですね.
 
 ## git cherry-pick 
 
+他のbranchの特定のcommitを今のbranchの先端に移植する
+
 `git cherry-pick <commit>...`
 
-他のbranchの特定のcommitを今のbranchの先端に移植する
+---
+
+### やってみる
 
 ```{sh, eval=F}
 $ git log --oneline --graph --all
@@ -505,9 +623,13 @@ $ git log --oneline --graph --all
 * e170b24 Added file000.
 ```
 
+---
+
 ```{sh, eval=F}
 $ git cherry-pick cf7cb13
 ```
+
+---
 
 ```{sh, eval=F}
 $ git log --oneline --graph --all
@@ -524,11 +646,26 @@ $ git log --oneline --graph --all
 
 ## Conflict 
 
+統合する複数のbranchで同じfileが変更されていると,CONFLICTが起こる
+
+これは,Gitがどちらの歴史(Branch)が正しいか判断できないため.
+
+userは自分で正しい歴史を選択する必要がある.
+
+---
+
+
+## Conflictを起こしてみる
+
 ```{sh, eval=F}
 # 準備
 git reset --hard HEAD^
-echo "ROW002 <- update_file000" >> file000
+echo "ROW002 <- update_file000" >> file000 
 ```
+
+masterとfeatureの両方でfile000が編集されている状態を作り出す.
+
+---
 
 ```{sh, eval=F}
 $ git merge master
@@ -536,6 +673,12 @@ Auto-merging file000
 CONFLICT (content): Merge conflict in file000
 Automatic merge failed; fix conflicts and then commit the result.
 ```
+
+🎉 CONFLCIT!!!
+
+---
+
+Conflictしたfileの中身
 
 ```{txt, eval=F}
 ROW000
@@ -604,3 +747,16 @@ PyCharmのようにConflictを解消するツールが付いているIDEもあ�
 
 <img src="https://www.jetbrains.com/help/img/idea/2018.3/resolveConflict.png" width="850px">
 
+
+---
+
+Conflictを解消したら当該のfileをaddしてcommit.
+
+```{sh, eval=F}
+git add file000
+git commit  
+```
+
+❗Conflict解消のときは自動的にmessageが入力されるのでmオプションはいらない
+
+成功すればMerge(or rebase, cherry-pickなど)が完了する.

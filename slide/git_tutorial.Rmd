@@ -37,11 +37,6 @@ font-size: 18px;
 }
 </style>
 
-# Adobe readerをやめてGit+Githubにしたら捗った話
-
-```{r child="./body/introduction.Rmd"}
-```
-
 # Git
 
 ```{r child="./body/basic.Rmd"}
@@ -63,11 +58,6 @@ font-size: 18px;
 ```{r child="./body/taboo_and_recommend.Rmd"}
 ```
 
-# Conclusion
-
-```{r child="./body/conclusion.Rmd"}
-```
-
 # Exercise
 
 ```{r child="./body/exercise.Rmd"}
@@ -82,11 +72,3 @@ font-size: 18px;
 
 ```{r child="./body/reference.Rmd"}
 ```
-
-
-
-/* # 最初のコミット */
-
-/* # ブロックチェーンとGit */
-
-/* # Gitの名前の由来 */

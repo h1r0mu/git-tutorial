@@ -251,16 +251,6 @@ featureとmasterしかないシンプルなFlow.
 - **production**: release済みのcode置き場
 </div>
 
-## 原稿執筆に利用する場合
-
-正解はないので,その都度最適な戦略を考えて選択するべきだが,一例として以下のようなものを提案しておく.
-
-- **feature**: 原稿の執筆を行う
-- **develop (master)**: featureのMerge用(Introを書き終えたとかのタイミングでMergeしていくイメージ)
-- **master (production)**: 研究会, 国際会議とかの完成版原稿をおいておく
-
-1つの研究の原稿は同じRepositoryで管理し,研究会->国際会議->修論などのようにVersionアップするたびにreleaseしていくといいんじゃない?
-
 ## Gitlabの基本操作
 
 <div align="center">
