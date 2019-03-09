@@ -50,6 +50,7 @@ featureとmasterしかないシンプルなFlow.
 </div>
 
 <div class="column-left">
+  
 - **feature/hotfix**: 機能開発、不具合対応branch
 - **master**: mainのbranch
 - **pre-production(option)**: release前のtest用(git-flowで言うrelease branch)
